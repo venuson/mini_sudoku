@@ -1,0 +1,160 @@
+2025-4-13 23:34:41 - debug: =================================== build bundle db://assets/resources Task (wechatgame) Start ================================
+2025-4-13 23:34:41 - debug: Start build task, options:{"name":"SudokuWechatGame","server":"","engineModulesConfigKey":"defaultConfig","platform":"wechatgame","buildPath":"project://build","debug":false,"buildMode":"normal","mangleProperties":false,"md5Cache":false,"skipCompressTexture":false,"sourceMaps":false,"overwriteProjectSettings":{"macroConfig":{"cleanupImageCache":"on"},"includeModules":{"physics":"inherit-project-setting","physics-2d":"inherit-project-setting","gfx-webgl2":"off"}},"nativeCodeBundleMode":"wasm","polyfills":{"asyncFunctions":false},"experimentalEraseModules":false,"startSceneAssetBundle":false,"bundleConfigs":[{"root":"db://assets/resources","name":"resources","output":true}],"inlineEnum":true,"useBuiltinServer":false,"md5CacheOptions":{"excludes":[],"includes":[],"replaceOnly":[],"handleTemplateMd5Link":true},"mainBundleIsRemote":false,"mainBundleCompressionType":"merge_dep","useSplashScreen":true,"bundleCommonChunk":false,"packAutoAtlas":true,"startScene":"6489fef4-9b0d-41d4-8cb1-3c66774943b1","outputName":"wechatgame","taskName":"build bundle db://assets/resources","scenes":[{"url":"db://assets/scenes/MainGame.scene","uuid":"6489fef4-9b0d-41d4-8cb1-3c66774943b1"}],"wasmCompressionMode":false,"packages":{"wechatgame":{"orientation":"portrait","appid":"wx6ac3f5090a6b99c5","buildOpenDataContextTemplate":"","separateEngine":false,"highPerformanceMode":false,"__version__":"1.0.4"},"cocos-service":{"configID":"53852c","services":[]}},"__version__":"1.3.9","logDest":"project://temp/builder/log/build-bundle-2025-4-13 23-34.log","dest":"/Users/ruiwei/Documents/cocos/SudokuWechatGame/build/build-bundle/wechatgame","buildBundleOnly":true,"id":"buildBundle"}
+2025-4-13 23:34:41 - debug: Build with Cocos Creator 3.8.6
+2025-4-13 23:34:41 - debug: Skip compress image, progress: 0%
+2025-4-13 23:34:41 - debug: run bundle task initOptions success!, progress: 7%
+2025-4-13 23:34:41 - debug: wechatgame:(onBeforeBundleInit) start..., progress: 7%
+2025-4-13 23:34:41 - debug: // ---- build task wechatgame：onBeforeBundleInit ----
+2025-4-13 23:34:41 - debug: // ---- build task wechatgame：onBeforeBundleInit ---- (24ms)
+2025-4-13 23:34:41 - debug: wechatgame:(onBeforeBundleInit) in 24 ms ✓, progress: 14%
+2025-4-13 23:34:41 - debug: adsense-h5g-plugin:(onBeforeBundleInit) start..., progress: 14%
+2025-4-13 23:34:41 - debug: // ---- build task adsense-h5g-plugin：onBeforeBundleInit ----
+2025-4-13 23:34:41 - debug: [adsense-h5g-plugin] remove script success
+2025-4-13 23:34:41 - debug: // ---- build task adsense-h5g-plugin：onBeforeBundleInit ---- (19ms)
+2025-4-13 23:34:41 - debug: adsense-h5g-plugin:(onBeforeBundleInit) in 19 ms ✓, progress: 20%
+2025-4-13 23:34:41 - debug: Init all bundles start..., progress: 20%
+2025-4-13 23:34:41 - debug: Num of bundles: 1..., progress: 20%
+2025-4-13 23:34:41 - debug: run bundle task initBundle success!, progress: 28%
+2025-4-13 23:34:41 - debug: Init bundle root assets start..., progress: 28%
+2025-4-13 23:34:41 - debug:   Number of all scenes: 1
+2025-4-13 23:34:41 - debug:   Number of all scripts: 32
+2025-4-13 23:34:41 - debug:   Number of other assets: 389
+2025-4-13 23:34:41 - debug: Init bundle root assets success..., progress: 28%
+2025-4-13 23:34:41 - debug: reload all scripts.
+2025-4-13 23:34:41 - debug: [[Executor]] reload before lock
+2025-4-13 23:34:41 - debug: Set detail map pack:///resolution-detail-map.json: {}
+2025-4-13 23:34:41 - groupCollapsed: Invalidate all modules
+2025-4-13 23:34:41 - debug: Unregister BuiltinPipelineSettings
+2025-4-13 23:34:41 - debug: Unregister BuiltinPipelinePassBuilder
+2025-4-13 23:34:41 - debug: Unregister BuiltinDepthOfFieldPass
+2025-4-13 23:34:41 - debug: Unregister DebugViewRuntimeControl
+2025-4-13 23:34:41 - debug: Unregister GridCell
+2025-4-13 23:34:41 - debug: Unregister HistoryItem
+2025-4-13 23:34:41 - debug: Unregister PopupBase
+2025-4-13 23:34:41 - debug: Unregister HistoryPopupController
+2025-4-13 23:34:41 - debug: Unregister NumberButton
+2025-4-13 23:34:41 - debug: Unregister RankItem
+2025-4-13 23:34:41 - debug: Unregister RankingPopupController
+2025-4-13 23:34:41 - debug: Unregister SettingsPopupController
+2025-4-13 23:34:41 - debug: Unregister AccountManager
+2025-4-13 23:34:41 - debug: Unregister AdManager
+2025-4-13 23:34:41 - debug: Unregister AudioManager
+2025-4-13 23:34:41 - debug: Unregister EffectsManager
+2025-4-13 23:34:41 - debug: Unregister UIManager
+2025-4-13 23:34:41 - debug: Unregister GridManager
+2025-4-13 23:34:41 - debug: Unregister InputManager
+2025-4-13 23:34:41 - debug: Unregister GameManager
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/93/93ba276ea7b26ffcdc433fab14afc1ed6f05647b.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/6d/6d8fd2b0177941b032ddc0733af48a561fb60657.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/10/10f25daca5a1665545ebc4efbd45bd86fed6143e.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/6a/6a5019a719a9014c047e67aa1cf34453ab8392ce.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/de/de51ae29bdc33d4721612db5b322a18ddcf7dd5c.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/93/936a458df8c410426dcbc8860ee5a32e64530057.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/60/60dfea53e1c17502cf4f0661946a964ad3ff0296.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/f8/f84f3b58ec61e2a9c03c5f86bacdfd0d6a2a3647.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/c1/c107986e77a987fe49f2e4b1c0dcc489194dbd3f.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/d5/d55ac9344588102c7d3d623fa120bbb530d42c45.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/1d/1dd1a4b9b0d647045ebc1fd57f46c790d95fcf84.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/31/31d5176c8dc8ac16455f145e7e5fa696d822016c.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/56/56affc241102fd612a33a6b6e596709a9a86bc0e.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/e9/e91fedcc55c4282a37753502c75348d6b540019d.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/e2/e2493c4648d8b176e947139b548a963d145e71fc.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/9a/9a66a5552af5d98735c140a5f120fc6a5c4dee5f.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/3f/3f079aca9b59f9b01218777ed0aa3d6eaca0b6d1.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/39/39b43c79722d2fce6f5fc7636d38eec038126cbe.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/ca/ca86b18f58970df51cff06dd4dd485fc2150443c.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/8f/8f53af94fbf90dadc7f43df15abfabc77fb300eb.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/67/671ae40422f36419d16a7a0f2141b3a8da8611f0.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/81/81d600da8549217f51b14db14958fbf655c7f6ce.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/07/07acd35229d20066c72df88d14e08fe8c6b0b3b4.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/5c/5c82a564d6ee5b206c8fff550040e9fda23fc956.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/ed/ed1da8d4f3b167daec2a8901c9dbf8e9a9c5c81e.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/ad/ade831ac7338d68b97426041f7f870bc069db896.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/4a/4a63c2fd2c248e30cb9c7e4d174869f4695ab12b.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/96/96f5f4b43f0cef87632b0345579e22856f2ba5bd.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/9f/9f60fcb4c52bf85c0f848e87f5bf5ad687a3af16.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/06/063a6054f7012d8f4422d8d3898332d9fa8de420.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/08/08630c8cebccbe65e49ecb6bba141ae62c505ef7.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/3a/3a4a619532d2811ec07f3e2c3beaafb1ccbf908a.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/6a/6a4c9cd497641f38094ddd1f9d01a3cffe3fd776.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/80/80115731eefa415ce74c6509c9fd5e04afe092ef.js'
+2025-4-13 23:34:41 - debug: Invalidating 'pack:///chunks/c0/c085f97085d85fad584a0de15d0aa0427639c7df.js'
+2025-4-13 23:34:41 - groupEnd: Invalidate all modules
+2025-4-13 23:34:41 - groupCollapsed: Imports all modules
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/93/93ba276ea7b26ffcdc433fab14afc1ed6f05647b.js" loaded.
+2025-4-13 23:34:41 - debug: /Users/ruiwei/Documents/cocos/SudokuWechatGame/temp/programming/packer-driver/targets/editor/chunks/6d/6d8fd2b0177941b032ddc0733af48a561fb60657.js resolved to /Users/ruiwei/Documents/cocos/SudokuWechatGame/temp/programming/packer-driver/targets/editor/chunks/6d/6d8fd2b0177941b032ddc0733af48a561fb60657.js is not in module cache!
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/6d/6d8fd2b0177941b032ddc0733af48a561fb60657.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/6a/6a5019a719a9014c047e67aa1cf34453ab8392ce.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/f8/f84f3b58ec61e2a9c03c5f86bacdfd0d6a2a3647.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register BuiltinPipelineSettings
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/de/de51ae29bdc33d4721612db5b322a18ddcf7dd5c.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register BuiltinPipelinePassBuilder
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/93/936a458df8c410426dcbc8860ee5a32e64530057.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/60/60dfea53e1c17502cf4f0661946a964ad3ff0296.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register BuiltinDepthOfFieldPass
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/10/10f25daca5a1665545ebc4efbd45bd86fed6143e.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register DebugViewRuntimeControl
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/c1/c107986e77a987fe49f2e4b1c0dcc489194dbd3f.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register GridCell
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/d5/d55ac9344588102c7d3d623fa120bbb530d42c45.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/31/31d5176c8dc8ac16455f145e7e5fa696d822016c.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register HistoryItem
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/1d/1dd1a4b9b0d647045ebc1fd57f46c790d95fcf84.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register PopupBase
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/e9/e91fedcc55c4282a37753502c75348d6b540019d.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register HistoryPopupController
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/56/56affc241102fd612a33a6b6e596709a9a86bc0e.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register NumberButton
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/e2/e2493c4648d8b176e947139b548a963d145e71fc.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register RankItem
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/9a/9a66a5552af5d98735c140a5f120fc6a5c4dee5f.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register RankingPopupController
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/3f/3f079aca9b59f9b01218777ed0aa3d6eaca0b6d1.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register SettingsPopupController
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/39/39b43c79722d2fce6f5fc7636d38eec038126cbe.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/ca/ca86b18f58970df51cff06dd4dd485fc2150443c.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/8f/8f53af94fbf90dadc7f43df15abfabc77fb300eb.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/67/671ae40422f36419d16a7a0f2141b3a8da8611f0.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/81/81d600da8549217f51b14db14958fbf655c7f6ce.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/5c/5c82a564d6ee5b206c8fff550040e9fda23fc956.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/07/07acd35229d20066c72df88d14e08fe8c6b0b3b4.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/ad/ade831ac7338d68b97426041f7f870bc069db896.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register AccountManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/ed/ed1da8d4f3b167daec2a8901c9dbf8e9a9c5c81e.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register AdManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/4a/4a63c2fd2c248e30cb9c7e4d174869f4695ab12b.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register AudioManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/96/96f5f4b43f0cef87632b0345579e22856f2ba5bd.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register EffectsManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/9f/9f60fcb4c52bf85c0f848e87f5bf5ad687a3af16.js" loaded.
+2025-4-13 23:34:41 - debug: /Users/ruiwei/Documents/cocos/SudokuWechatGame/temp/programming/packer-driver/targets/editor/chunks/3a/3a4a619532d2811ec07f3e2c3beaafb1ccbf908a.js resolved to /Users/ruiwei/Documents/cocos/SudokuWechatGame/temp/programming/packer-driver/targets/editor/chunks/3a/3a4a619532d2811ec07f3e2c3beaafb1ccbf908a.js is not in module cache!
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/08/08630c8cebccbe65e49ecb6bba141ae62c505ef7.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register UIManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/80/80115731eefa415ce74c6509c9fd5e04afe092ef.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register GridManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/3a/3a4a619532d2811ec07f3e2c3beaafb1ccbf908a.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register InputManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/6a/6a4c9cd497641f38094ddd1f9d01a3cffe3fd776.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Register GameManager
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/06/063a6054f7012d8f4422d8d3898332d9fa8de420.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/c0/c085f97085d85fad584a0de15d0aa0427639c7df.js" loaded.
+2025-4-13 23:34:41 - debug: [[Executor]] Module "pack:///chunks/6d/6d8fd2b0177941b032ddc0733af48a561fb60657.js" loaded.
+2025-4-13 23:34:41 - groupEnd: Imports all modules
+2025-4-13 23:34:41 - debug: [[Executor]] after unlock
+2025-4-13 23:34:41 - debug: Incremental keys: 
+2025-4-13 23:34:41 - debug: Init bundle share assets start..., progress: 28%
+2025-4-13 23:34:41 - debug: Init bundle share assets success..., progress: 28%
+2025-4-13 23:34:41 - debug: run bundle task initAsset success!, progress: 35%
+2025-4-13 23:34:41 - debug: handle json group in bundle resources
+2025-4-13 23:34:41 - debug: handle json group in bundle resources success
+2025-4-13 23:34:41 - debug: init image compress task 0 in bundle resources
+2025-4-13 23:34:41 - debug: run bundle task bundleDataTask success!, progress: 42%
+2025-4-13 23:34:41 - debug: run bundle task clearBundleDest success!, progress: 49%
+2025-4-13 23:34:41 - debug: Build script in bundle start, progress: 49%
+2025-4-13 23:34:41 - log: Run build task(build-script) in child, see: chrome://inspect/#devices
+2025-4-13 23:34:42 - log: [build-script]enter sub process 12684, /Applications/Cocos/Creator/3.8.6/CocosCreator.app/Contents/Frameworks/CocosCreator Helper (Renderer).app/Contents/MacOS/CocosCreator Helper (Renderer),/Applications/Cocos/Creator/3.8.6/CocosCreator.app/Contents/Resources/app.asar/builtin/builder/static/sub-process-index
+2025-4-13 23:34:46 - debug: excute-script over with build-script 4822ms
+2025-4-13 23:34:46 - debug: Copy externalScripts success!
+2025-4-13 23:34:46 - debug: Build script in bundle success, progress: 49%
+2025-4-13 23:34:46 - debug: run bundle task buildScript success!, progress: 56%
+2025-4-13 23:34:46 - debug: ================================ build bundle db://assets/resources Task (build bundle db://assets/resources) Finished in (5 s)ms ================================

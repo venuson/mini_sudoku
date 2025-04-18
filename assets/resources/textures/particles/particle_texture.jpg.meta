@@ -1,0 +1,17 @@
+{
+  "ver": "1.0.27",
+  "importer": "image",
+  "imported": true,
+  "uuid": "61399c62-24a4-46b1-9036-c5c0e454343d",
+  "files": [
+    ".jpg",
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "type": "raw",
+    "hasAlpha": false,
+    "fixAlphaTransparencyArtifacts": false,
+    "redirect": "61399c62-24a4-46b1-9036-c5c0e454343d@6c48a"
+  }
+}

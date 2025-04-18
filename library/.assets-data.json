@@ -1,0 +1,1625 @@
+{
+  "394e8810-d86f-4ef1-b693-61e0e82abf65": {
+    "url": "db://assets/scenes",
+    "value": {},
+    "versionCode": 1
+  },
+  "6489fef4-9b0d-41d4-8cb1-3c66774943b1": {
+    "url": "db://assets/scenes/MainGame.scene",
+    "value": {
+      "depends": [
+        "6489fef4-9b0d-41d4-8cb1-3c66774943b1",
+        "2f41392b-c78e-47d9-9c06-20fe0e7e8980@f9941",
+        "52fc4f8b-b6a4-42ab-904d-027181d0f46c",
+        "a57c3a17-7e91-4c59-a795-8c2551d1a0fe",
+        "d5684d10-f985-4626-93cb-68a21ddf4e19",
+        "c858e4bf-26c6-47e5-877a-ed7ef4c36fb0",
+        "3259ba33-3a09-4638-b1d4-23fbc91b954a",
+        "2ad7476f-477d-4c93-97e0-4d79e6a8cb25@f9941",
+        "36577de8-b82c-44c5-9d9c-9cf485bfeadf@f9941",
+        "72906bac-fb26-440f-95d4-99f893dc0b3f@f9941",
+        "23285bb6-8e04-4678-a42e-7f78774fc456",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "ca667e54-6d78-4218-8976-5b144690e5d1",
+        "3ea0dceb-bcbb-44f3-a852-893b7e2fcf0f"
+      ],
+      "dependScripts": [
+        "bf62c4e1-951d-476d-8dd6-b8e1ddd44cff",
+        "1fc56820-627b-42b5-accc-ae0052a30a33",
+        "dcf23b25-020d-48b2-8bfc-4fd134479284",
+        "CC3eba29-7abb-723a-f7ab-ae275e2277e8",
+        "ba489078-cd24-4228-a06f-6815baa48edf",
+        "284b17fb-59b7-4144-b131-6176ebc5a1bd",
+        "3c60a35f-c706-4d01-964f-5751bdf0f277",
+        "b6cada2d-063c-4792-aa5f-eae129b3272c",
+        "f43b1593-0bde-4ef4-ba4a-ecd7bc4d7d2c"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9f9afe5a-ef24-462c-9bc1-49c3a6212856": {
+    "url": "db://assets/scripts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9c527cc1-a0dc-4572-a40e-a6cd7410380c": {
+    "url": "db://assets/scripts/components",
+    "value": {},
+    "versionCode": 1
+  },
+  "df5b99d6-480a-4444-b33b-48c390ed0f90": {
+    "url": "db://assets/scripts/data",
+    "value": {},
+    "versionCode": 1
+  },
+  "96ca1516-7f80-403d-8c28-41e2dc751d63": {
+    "url": "db://assets/scripts/logic",
+    "value": {},
+    "versionCode": 1
+  },
+  "4122c0dc-a92e-4371-ac16-2de539e71a96": {
+    "url": "db://assets/scripts/managers",
+    "value": {},
+    "versionCode": 1
+  },
+  "e366d68e-5280-4a04-9632-0b69a7c53772": {
+    "url": "db://assets/scripts/services",
+    "value": {},
+    "versionCode": 1
+  },
+  "438a601a-b0dd-404c-b9c7-5616e032aca2": {
+    "url": "db://assets/scripts/utils",
+    "value": {},
+    "versionCode": 1
+  },
+  "807433ad-d741-4aae-b3d4-087d4e2a394e": {
+    "url": "db://assets/scripts/components/GridCell.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "a58257df-3073-48b0-874a-cf6f59a647f8": {
+    "url": "db://assets/scripts/components/HistoryItem.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2c986579-94eb-4968-b1f8-94164b26e919": {
+    "url": "db://assets/scripts/components/NumberButton.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c2f247e6-7e2f-47e7-a112-7f8f7804b641": {
+    "url": "db://assets/scripts/components/PopupBase.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "dfded44e-fb43-49c4-860b-a878d4f77203": {
+    "url": "db://assets/scripts/components/RankItem.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "deb43983-f38d-41e6-9bef-6b841b48b1c9": {
+    "url": "db://assets/scripts/data/ActionRecord.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3cb90a34-0641-41d4-8ba3-db5884957d6d": {
+    "url": "db://assets/scripts/data/GameData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3caeef95-564c-4c4d-bbb6-91dade614014": {
+    "url": "db://assets/scripts/data/SettingsData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "dfe6f194-b3d8-4cfd-9e2d-e9e5346c1648": {
+    "url": "db://assets/scripts/data/UserData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "d53bb24a-c104-4b59-834d-ae2b7e70c117": {
+    "url": "db://assets/scripts/logic/SudokuLogic.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "b6cada2d-063c-4792-aa5f-eae129b3272c": {
+    "url": "db://assets/scripts/managers/AccountManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f43b1593-0bde-4ef4-ba4a-ecd7bc4d7d2c": {
+    "url": "db://assets/scripts/managers/AdManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "284b17fb-59b7-4144-b131-6176ebc5a1bd": {
+    "url": "db://assets/scripts/managers/AudioManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3c60a35f-c706-4d01-964f-5751bdf0f277": {
+    "url": "db://assets/scripts/managers/EffectsManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "bf62c4e1-951d-476d-8dd6-b8e1ddd44cff": {
+    "url": "db://assets/scripts/managers/GameManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "dcf23b25-020d-48b2-8bfc-4fd134479284": {
+    "url": "db://assets/scripts/managers/GridManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ba489078-cd24-4228-a06f-6815baa48edf": {
+    "url": "db://assets/scripts/managers/InputManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "25f56e80-2af6-4b9e-a0ff-9095852b6f18": {
+    "url": "db://assets/scripts/services/PersistenceManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "1fc56820-627b-42b5-accc-ae0052a30a33": {
+    "url": "db://assets/scripts/managers/UIManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "5537cab5-9539-4c37-a0c0-58205d224082": {
+    "url": "db://assets/scripts/services/CloudService.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c692ba5c-a32d-444c-b4ef-fefb398da5ab": {
+    "url": "db://assets/scripts/utils/Constants.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "871077d7-6941-4ee7-9e89-148a5205abd2": {
+    "url": "db://assets/scripts/utils/TimeFormatter.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c8528ccf-a8dc-48cf-822f-0ed916541670": {
+    "url": "db://assets/animations",
+    "value": {},
+    "versionCode": 1
+  },
+  "99d49b05-d95d-4e3f-8d24-7e273b2d61f8": {
+    "url": "db://assets/audio",
+    "value": {},
+    "versionCode": 1
+  },
+  "3bb797f5-1f52-4849-ab4e-5ac6b2395162": {
+    "url": "db://assets/prefabs",
+    "value": {},
+    "versionCode": 1
+  },
+  "dd036c3f-97fd-436d-add8-6fdabe1996ba": {
+    "url": "db://assets/resources/textures",
+    "value": {},
+    "versionCode": 1
+  },
+  "4e90aa75-f83a-439a-8927-23a028cc6e41": {
+    "url": "db://assets/resources/audio/bgm",
+    "value": {},
+    "versionCode": 1
+  },
+  "23f186d2-ca91-4c2b-b94a-4413c4d57a26": {
+    "url": "db://assets/resources/audio/sfx",
+    "value": {},
+    "versionCode": 1
+  },
+  "ef8c559d-01cf-45af-beaa-ef5c845bc361": {
+    "url": "db://assets/resources/textures/game",
+    "value": {},
+    "versionCode": 1
+  },
+  "76534910-982e-4e9c-98f7-332225a981a4": {
+    "url": "db://assets/resources/textures/particles",
+    "value": {},
+    "versionCode": 1
+  },
+  "b233c638-80b6-4c46-be8a-7abed7d83d34": {
+    "url": "db://assets/resources/textures/ui",
+    "value": {},
+    "versionCode": 1
+  },
+  "70da6baa-0329-4b53-8994-97a8ca45fcb9": {
+    "url": "db://assets/resources/textures/game/numbers",
+    "value": {},
+    "versionCode": 1
+  },
+  "165592e3-9bbb-4b95-87cc-bf8be5014e25": {
+    "url": "db://assets/resources/audio/bgm/bgm.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a87798c0-40a6-4053-aba4-ecefc82f084c": {
+    "url": "db://assets/resources/audio/sfx/applause.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "3ab0d479-bc9d-4d38-8fd6-0d1463cf99f9": {
+    "url": "db://assets/resources/audio/sfx/clear.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2a7d30b7-2f86-456c-8b24-7f1cf801cd8b": {
+    "url": "db://assets/resources/audio/sfx/click.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a6b197fa-d990-4ee0-b2aa-7401b7278684": {
+    "url": "db://assets/resources/audio/sfx/fill.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "ac475d7b-a907-4c54-b3d8-86c4cf8a5615": {
+    "url": "db://assets/resources/audio/sfx/win.mp3",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a1b6da06-aa07-4746-9039-da9b54819bab": {
+    "url": "db://assets/resources/textures/game/cell_preset_bg.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "72906bac-fb26-440f-95d4-99f893dc0b3f": {
+    "url": "db://assets/resources/textures/game/cell_selected_highlight.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "48df3158-7604-45d6-8761-12021100c2e4": {
+    "url": "db://assets/resources/textures/game/cell_user_bg.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "33630fcc-e1b6-43cf-ad6b-0267e6ecce90": {
+    "url": "db://assets/resources/textures/ui/default_avatar.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2f41392b-c78e-47d9-9c06-20fe0e7e8980": {
+    "url": "db://assets/resources/textures/ui/background.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "72906bac-fb26-440f-95d4-99f893dc0b3f@6c48a": {
+    "url": "db://assets/resources/textures/game/cell_selected_highlight.png@6c48a",
+    "value": {
+      "depends": [
+        "72906bac-fb26-440f-95d4-99f893dc0b3f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "56ad2851-334a-4df3-821d-7d88586644e3": {
+    "url": "db://assets/resources/textures/ui/clear_icon.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "48df3158-7604-45d6-8761-12021100c2e4@6c48a": {
+    "url": "db://assets/resources/textures/game/cell_user_bg.png@6c48a",
+    "value": {
+      "depends": [
+        "48df3158-7604-45d6-8761-12021100c2e4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "36577de8-b82c-44c5-9d9c-9cf485bfeadf": {
+    "url": "db://assets/resources/textures/ui/icon_pause.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a1b6da06-aa07-4746-9039-da9b54819bab@6c48a": {
+    "url": "db://assets/resources/textures/game/cell_preset_bg.png@6c48a",
+    "value": {
+      "depends": [
+        "a1b6da06-aa07-4746-9039-da9b54819bab"
+      ]
+    },
+    "versionCode": 1
+  },
+  "33630fcc-e1b6-43cf-ad6b-0267e6ecce90@6c48a": {
+    "url": "db://assets/resources/textures/ui/default_avatar.png@6c48a",
+    "value": {
+      "depends": [
+        "33630fcc-e1b6-43cf-ad6b-0267e6ecce90"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fbb23202-09fe-414d-ac73-3fa13ae47ecb": {
+    "url": "db://assets/resources/textures/ui/icon_resume.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2ad7476f-477d-4c93-97e0-4d79e6a8cb25": {
+    "url": "db://assets/resources/textures/ui/icon_settings.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2f41392b-c78e-47d9-9c06-20fe0e7e8980@6c48a": {
+    "url": "db://assets/resources/textures/ui/background.jpg@6c48a",
+    "value": {
+      "depends": [
+        "2f41392b-c78e-47d9-9c06-20fe0e7e8980"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7fed9937-eef3-4fe7-80a8-4b37a10be7bd": {
+    "url": "db://assets/resources/textures/game/numbers/1.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fbb23202-09fe-414d-ac73-3fa13ae47ecb@6c48a": {
+    "url": "db://assets/resources/textures/ui/icon_resume.png@6c48a",
+    "value": {
+      "depends": [
+        "fbb23202-09fe-414d-ac73-3fa13ae47ecb"
+      ]
+    },
+    "versionCode": 1
+  },
+  "2ad7476f-477d-4c93-97e0-4d79e6a8cb25@6c48a": {
+    "url": "db://assets/resources/textures/ui/icon_settings.png@6c48a",
+    "value": {
+      "depends": [
+        "2ad7476f-477d-4c93-97e0-4d79e6a8cb25"
+      ]
+    },
+    "versionCode": 1
+  },
+  "dea74236-9605-428b-91ce-8e47fcb35852": {
+    "url": "db://assets/resources/textures/game/numbers/2.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2c2d2d86-8269-4744-b9b0-686e61f6a3cf": {
+    "url": "db://assets/resources/textures/game/numbers/3.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "36577de8-b82c-44c5-9d9c-9cf485bfeadf@6c48a": {
+    "url": "db://assets/resources/textures/ui/icon_pause.png@6c48a",
+    "value": {
+      "depends": [
+        "36577de8-b82c-44c5-9d9c-9cf485bfeadf"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1b114cdb-a153-45b4-90f8-9e009f55fc4a": {
+    "url": "db://assets/resources/textures/game/numbers/4.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "56ad2851-334a-4df3-821d-7d88586644e3@6c48a": {
+    "url": "db://assets/resources/textures/ui/clear_icon.png@6c48a",
+    "value": {
+      "depends": [
+        "56ad2851-334a-4df3-821d-7d88586644e3"
+      ]
+    },
+    "versionCode": 1
+  },
+  "555b9ac9-0a81-4aa3-91d0-868a9ab5d33f": {
+    "url": "db://assets/resources/textures/game/numbers/5.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "7fed9937-eef3-4fe7-80a8-4b37a10be7bd@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/1.png@6c48a",
+    "value": {
+      "depends": [
+        "7fed9937-eef3-4fe7-80a8-4b37a10be7bd"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0f4148c4-fd79-446d-be94-edc1a7de9f2c": {
+    "url": "db://assets/resources/textures/game/numbers/6.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "dea74236-9605-428b-91ce-8e47fcb35852@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/2.png@6c48a",
+    "value": {
+      "depends": [
+        "dea74236-9605-428b-91ce-8e47fcb35852"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7917d40d-18a3-4a93-9dc5-ae44430e7de4": {
+    "url": "db://assets/resources/textures/game/numbers/7.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "2c2d2d86-8269-4744-b9b0-686e61f6a3cf@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/3.png@6c48a",
+    "value": {
+      "depends": [
+        "2c2d2d86-8269-4744-b9b0-686e61f6a3cf"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6c506aaf-91aa-4e23-8a89-a6a97d94024a": {
+    "url": "db://assets/resources/textures/game/numbers/8.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "1b114cdb-a153-45b4-90f8-9e009f55fc4a@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/4.png@6c48a",
+    "value": {
+      "depends": [
+        "1b114cdb-a153-45b4-90f8-9e009f55fc4a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "853b1c0d-a15b-4086-8384-442955ec47d1": {
+    "url": "db://assets/resources/textures/game/numbers/9.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "555b9ac9-0a81-4aa3-91d0-868a9ab5d33f@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/5.png@6c48a",
+    "value": {
+      "depends": [
+        "555b9ac9-0a81-4aa3-91d0-868a9ab5d33f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6c506aaf-91aa-4e23-8a89-a6a97d94024a@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/8.png@6c48a",
+    "value": {
+      "depends": [
+        "6c506aaf-91aa-4e23-8a89-a6a97d94024a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7917d40d-18a3-4a93-9dc5-ae44430e7de4@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/7.png@6c48a",
+    "value": {
+      "depends": [
+        "7917d40d-18a3-4a93-9dc5-ae44430e7de4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0f4148c4-fd79-446d-be94-edc1a7de9f2c@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/6.png@6c48a",
+    "value": {
+      "depends": [
+        "0f4148c4-fd79-446d-be94-edc1a7de9f2c"
+      ]
+    },
+    "versionCode": 1
+  },
+  "853b1c0d-a15b-4086-8384-442955ec47d1@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/9.png@6c48a",
+    "value": {
+      "depends": [
+        "853b1c0d-a15b-4086-8384-442955ec47d1"
+      ]
+    },
+    "versionCode": 1
+  },
+  "72b61bc3-61a4-4afc-ae88-0b5a160fe51d": {
+    "url": "db://assets/prefabs/GridCell.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "f87714d6-1478-41fb-9255-289b1f501ae0": {
+    "url": "db://assets/prefabs/GridCell.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "dd5a9b01-a588-4acc-bb5b-991f518a16e1": {
+    "url": "db://assets/prefabs/GridCell.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "4f006671-2c39-45ef-9e9d-ed6105410029": {
+    "url": "db://assets/extensions",
+    "value": {},
+    "versionCode": 1
+  },
+  "77051d3f-28b8-4bc3-a828-4451b5c4867b": {
+    "url": "db://assets/scripts/components/GridCell.js",
+    "value": {},
+    "versionCode": 1
+  },
+  "1a4c4239-289a-4ee4-92a9-30fbffa5b07e": {
+    "url": "db://assets/resources/textures/game/btn_blue_bg.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "1a4c4239-289a-4ee4-92a9-30fbffa5b07e@6c48a": {
+    "url": "db://assets/resources/textures/game/btn_blue_bg.png@6c48a",
+    "value": {
+      "depends": [
+        "1a4c4239-289a-4ee4-92a9-30fbffa5b07e"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1a4c4239-289a-4ee4-92a9-30fbffa5b07e@f9941": {
+    "url": "db://assets/resources/textures/game/btn_blue_bg.png@f9941",
+    "value": {
+      "depends": [
+        "1a4c4239-289a-4ee4-92a9-30fbffa5b07e@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0295a7e6-52c1-47de-977e-ae4cc0077056": {
+    "url": "db://assets/scripts/vendor",
+    "value": {},
+    "versionCode": 1
+  },
+  "c2ff114e-4889-4e7d-9da2-951b14d369e5": {
+    "url": "db://assets/scripts/vendor/sudoku_core.js",
+    "value": {},
+    "versionCode": 1
+  },
+  "3f454162-1c60-4f60-bf9d-155c0314fbe0": {
+    "url": "db://assets/scripts/vendor/SudokuCore.js",
+    "value": {},
+    "versionCode": 1
+  },
+  "4a6fe80f-5aa6-4ebb-aa02-4eee88bbaab1": {
+    "url": "db://assets/scripts/vendor/SudokuCore.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2f41392b-c78e-47d9-9c06-20fe0e7e8980@f9941": {
+    "url": "db://assets/resources/textures/ui/background.jpg@f9941",
+    "value": {
+      "depends": [
+        "2f41392b-c78e-47d9-9c06-20fe0e7e8980@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "36577de8-b82c-44c5-9d9c-9cf485bfeadf@f9941": {
+    "url": "db://assets/resources/textures/ui/icon_pause.png@f9941",
+    "value": {
+      "depends": [
+        "36577de8-b82c-44c5-9d9c-9cf485bfeadf@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "2ad7476f-477d-4c93-97e0-4d79e6a8cb25@f9941": {
+    "url": "db://assets/resources/textures/ui/icon_settings.png@f9941",
+    "value": {
+      "depends": [
+        "2ad7476f-477d-4c93-97e0-4d79e6a8cb25@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "72906bac-fb26-440f-95d4-99f893dc0b3f@f9941": {
+    "url": "db://assets/resources/textures/game/cell_selected_highlight.png@f9941",
+    "value": {
+      "depends": [
+        "72906bac-fb26-440f-95d4-99f893dc0b3f@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "48df3158-7604-45d6-8761-12021100c2e4@f9941": {
+    "url": "db://assets/resources/textures/game/cell_user_bg.png@f9941",
+    "value": {
+      "depends": [
+        "48df3158-7604-45d6-8761-12021100c2e4@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "34b6d289-1fe5-43c2-a01b-76c970e1518c": {
+    "url": "db://assets/prefabs/GridCell.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "23285bb6-8e04-4678-a42e-7f78774fc456": {
+    "url": "db://assets/prefabs/GridCell.prefab",
+    "value": {
+      "depends": [
+        "7fed9937-eef3-4fe7-80a8-4b37a10be7bd@f9941",
+        "72906bac-fb26-440f-95d4-99f893dc0b3f@f9941"
+      ],
+      "dependScripts": [
+        "807433ad-d741-4aae-b3d4-087d4e2a394e"
+      ]
+    },
+    "versionCode": 1
+  },
+  "670bd949-891e-4fe1-b85a-b11eff6a71e7": {
+    "url": "db://assets/resources/number_pad_bg_valid.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "670bd949-891e-4fe1-b85a-b11eff6a71e7@6c48a": {
+    "url": "db://assets/resources/number_pad_bg_valid.png@6c48a",
+    "value": {
+      "depends": [
+        "670bd949-891e-4fe1-b85a-b11eff6a71e7"
+      ]
+    },
+    "versionCode": 1
+  },
+  "670bd949-891e-4fe1-b85a-b11eff6a71e7@f9941": {
+    "url": "db://assets/resources/number_pad_bg_valid.png@f9941",
+    "value": {
+      "depends": [
+        "670bd949-891e-4fe1-b85a-b11eff6a71e7@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7fed9937-eef3-4fe7-80a8-4b37a10be7bd@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/1.png@f9941",
+    "value": {
+      "depends": [
+        "7fed9937-eef3-4fe7-80a8-4b37a10be7bd@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "dea74236-9605-428b-91ce-8e47fcb35852@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/2.png@f9941",
+    "value": {
+      "depends": [
+        "dea74236-9605-428b-91ce-8e47fcb35852@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "2c2d2d86-8269-4744-b9b0-686e61f6a3cf@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/3.png@f9941",
+    "value": {
+      "depends": [
+        "2c2d2d86-8269-4744-b9b0-686e61f6a3cf@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1b114cdb-a153-45b4-90f8-9e009f55fc4a@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/4.png@f9941",
+    "value": {
+      "depends": [
+        "1b114cdb-a153-45b4-90f8-9e009f55fc4a@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "555b9ac9-0a81-4aa3-91d0-868a9ab5d33f@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/5.png@f9941",
+    "value": {
+      "depends": [
+        "555b9ac9-0a81-4aa3-91d0-868a9ab5d33f@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0f4148c4-fd79-446d-be94-edc1a7de9f2c@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/6.png@f9941",
+    "value": {
+      "depends": [
+        "0f4148c4-fd79-446d-be94-edc1a7de9f2c@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "7917d40d-18a3-4a93-9dc5-ae44430e7de4@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/7.png@f9941",
+    "value": {
+      "depends": [
+        "7917d40d-18a3-4a93-9dc5-ae44430e7de4@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "6c506aaf-91aa-4e23-8a89-a6a97d94024a@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/8.png@f9941",
+    "value": {
+      "depends": [
+        "6c506aaf-91aa-4e23-8a89-a6a97d94024a@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "853b1c0d-a15b-4086-8384-442955ec47d1@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/9.png@f9941",
+    "value": {
+      "depends": [
+        "853b1c0d-a15b-4086-8384-442955ec47d1@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "dea95b64-6af6-4104-87a6-5400cf52c3b6": {
+    "url": "db://assets/prefabs/NumberButton.prefab",
+    "value": {},
+    "versionCode": 1
+  },
+  "a25a50b2-242f-4e00-913e-24dee6a573f6": {
+    "url": "db://assets/resources/textures/ui/settings_bg.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a25a50b2-242f-4e00-913e-24dee6a573f6@6c48a": {
+    "url": "db://assets/resources/textures/ui/settings_bg.jpg@6c48a",
+    "value": {
+      "depends": [
+        "a25a50b2-242f-4e00-913e-24dee6a573f6"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a25a50b2-242f-4e00-913e-24dee6a573f6@f9941": {
+    "url": "db://assets/resources/textures/ui/settings_bg.jpg@f9941",
+    "value": {
+      "depends": [
+        "a25a50b2-242f-4e00-913e-24dee6a573f6@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fbb23202-09fe-414d-ac73-3fa13ae47ecb@f9941": {
+    "url": "db://assets/resources/textures/ui/icon_resume.png@f9941",
+    "value": {
+      "depends": [
+        "fbb23202-09fe-414d-ac73-3fa13ae47ecb@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "56ad2851-334a-4df3-821d-7d88586644e3@f9941": {
+    "url": "db://assets/resources/textures/ui/clear_icon.png@f9941",
+    "value": {
+      "depends": [
+        "56ad2851-334a-4df3-821d-7d88586644e3@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "52fc4f8b-b6a4-42ab-904d-027181d0f46c": {
+    "url": "db://assets/prefabs/SettingsPopup.prefab",
+    "value": {
+      "depends": [
+        "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941",
+        "158e7e52-3220-4cd7-9694-713e0e6e8278@f9941",
+        "11bdc4b0-64a8-4eb7-a2a7-9fb9e233e977@f9941",
+        "56ad2851-334a-4df3-821d-7d88586644e3@f9941",
+        "a25a50b2-242f-4e00-913e-24dee6a573f6@f9941"
+      ],
+      "dependScripts": [
+        "ef9394b9-aaa6-4f9b-b311-9e0c8954c3d7"
+      ]
+    },
+    "versionCode": 1
+  },
+  "ef9394b9-aaa6-4f9b-b311-9e0c8954c3d7": {
+    "url": "db://assets/scripts/components/SettingsPopupController.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "33630fcc-e1b6-43cf-ad6b-0267e6ecce90@f9941": {
+    "url": "db://assets/resources/textures/ui/default_avatar.png@f9941",
+    "value": {
+      "depends": [
+        "33630fcc-e1b6-43cf-ad6b-0267e6ecce90@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3259ba33-3a09-4638-b1d4-23fbc91b954a": {
+    "url": "db://assets/prefabs/RankItem.prefab",
+    "value": {
+      "depends": [
+        "33630fcc-e1b6-43cf-ad6b-0267e6ecce90@f9941"
+      ],
+      "dependScripts": [
+        "dfded44e-fb43-49c4-860b-a878d4f77203"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a57c3a17-7e91-4c59-a795-8c2551d1a0fe": {
+    "url": "db://assets/prefabs/HistoryPopup.prefab",
+    "value": {
+      "depends": [
+        "57520716-48c8-4a19-8acf-41c9f8777fb0@f9941",
+        "56ad2851-334a-4df3-821d-7d88586644e3@f9941",
+        "afc47931-f066-46b0-90be-9fe61f213428@f9941",
+        "ffb88a8f-af62-48f4-8f1d-3cb606443a43@f9941",
+        "b730527c-3233-41c2-aaf7-7cdab58f9749@f9941",
+        "a25a50b2-242f-4e00-913e-24dee6a573f6@f9941"
+      ],
+      "dependScripts": [
+        "b560f7c1-63ea-4d24-a3f8-78fc59246989"
+      ]
+    },
+    "versionCode": 1
+  },
+  "b560f7c1-63ea-4d24-a3f8-78fc59246989": {
+    "url": "db://assets/scripts/components/HistoryPopupController.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c858e4bf-26c6-47e5-877a-ed7ef4c36fb0": {
+    "url": "db://assets/prefabs/RecordItem.prefab",
+    "value": {
+      "depends": [
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941"
+      ],
+      "dependScripts": [
+        "a58257df-3073-48b0-874a-cf6f59a647f8"
+      ]
+    },
+    "versionCode": 1
+  },
+  "2cdfd1f7-43e2-490b-bb40-ec0d36f74a8f": {
+    "url": "db://assets/scripts/components/RankingPopupController.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "d5684d10-f985-4626-93cb-68a21ddf4e19": {
+    "url": "db://assets/prefabs/RankingPopup.prefab",
+    "value": {
+      "depends": [
+        "56ad2851-334a-4df3-821d-7d88586644e3@f9941",
+        "3259ba33-3a09-4638-b1d4-23fbc91b954a",
+        "afc47931-f066-46b0-90be-9fe61f213428@f9941",
+        "ffb88a8f-af62-48f4-8f1d-3cb606443a43@f9941",
+        "b730527c-3233-41c2-aaf7-7cdab58f9749@f9941",
+        "a25a50b2-242f-4e00-913e-24dee6a573f6@f9941"
+      ],
+      "dependScripts": [
+        "CC3eba29-7abb-723a-f7ab-ae275e2277e8",
+        "dfded44e-fb43-49c4-860b-a878d4f77203",
+        "2cdfd1f7-43e2-490b-bb40-ec0d36f74a8f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "61399c62-24a4-46b1-9036-c5c0e454343d": {
+    "url": "db://assets/resources/textures/particles/particle_texture.jpg",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "61399c62-24a4-46b1-9036-c5c0e454343d@6c48a": {
+    "url": "db://assets/textures/particles/particle_texture.jpg@6c48a",
+    "value": {
+      "depends": [
+        "61399c62-24a4-46b1-9036-c5c0e454343d"
+      ]
+    },
+    "versionCode": 1
+  },
+  "61399c62-24a4-46b1-9036-c5c0e454343d@f9941": {
+    "url": "db://assets/textures/particles/particle_texture.jpg@f9941",
+    "value": {
+      "depends": [
+        "61399c62-24a4-46b1-9036-c5c0e454343d@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "93a5507e-1987-494c-ba03-5f8e2b8bd919": {
+    "url": "db://assets/resources",
+    "value": {},
+    "versionCode": 1
+  },
+  "f501ed6f-d9f0-41f0-b734-9a1b34f9fa47": {
+    "url": "db://assets/resources/audio",
+    "value": {},
+    "versionCode": 1
+  },
+  "ec3ddb50-d4fb-45e6-aa3a-9ce25bd4351f": {
+    "url": "db://assets/resources/textures/game",
+    "value": {},
+    "versionCode": 1
+  },
+  "a6c85431-8ec3-4f41-9914-5a521cd6b5ae": {
+    "url": "db://assets/resources/textures/particles",
+    "value": {},
+    "versionCode": 1
+  },
+  "89a5f239-e3d4-4037-8d25-490e8ff68636": {
+    "url": "db://assets/resources/textures/ui",
+    "value": {},
+    "versionCode": 1
+  },
+  "02b091a0-b651-47af-b7c9-1a4b43cf10f9": {
+    "url": "db://assets/resources/textures/game/numbers",
+    "value": {},
+    "versionCode": 1
+  },
+  "112f716c-4259-4360-9c14-56a821f9d40a": {
+    "url": "db://assets/resources/textures",
+    "value": {},
+    "versionCode": 1
+  },
+  "69e1eb3b-ab2c-4d94-be49-33c3688180d0": {
+    "url": "db://assets/resources/textures/game/btn_blue_bg.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "72ffe1e2-51d9-4e66-aeb6-df0c9bd2250f": {
+    "url": "db://assets/resources/textures/game/cell_preset_bg.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "178676da-a2a0-4fcf-b638-b30b1e163bf2": {
+    "url": "db://assets/resources/textures/game/cell_selected_highlight.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "862af889-0ba8-43b6-868d-a48b67360ba7": {
+    "url": "db://assets/resources/textures/game/cell_user_bg.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "be70abf1-3151-4c9a-afa9-7658da63ab65": {
+    "url": "db://assets/resources/textures/game/default_avatar.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "862af889-0ba8-43b6-868d-a48b67360ba7@6c48a": {
+    "url": "db://assets/resources/textures/game/cell_user_bg.png@6c48a",
+    "value": {
+      "depends": [
+        "862af889-0ba8-43b6-868d-a48b67360ba7"
+      ]
+    },
+    "versionCode": 1
+  },
+  "178676da-a2a0-4fcf-b638-b30b1e163bf2@6c48a": {
+    "url": "db://assets/resources/textures/game/cell_selected_highlight.png@6c48a",
+    "value": {
+      "depends": [
+        "178676da-a2a0-4fcf-b638-b30b1e163bf2"
+      ]
+    },
+    "versionCode": 1
+  },
+  "72ffe1e2-51d9-4e66-aeb6-df0c9bd2250f@6c48a": {
+    "url": "db://assets/resources/textures/game/cell_preset_bg.png@6c48a",
+    "value": {
+      "depends": [
+        "72ffe1e2-51d9-4e66-aeb6-df0c9bd2250f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "db318841-4c58-4050-8e8c-5a43c6cb6de1": {
+    "url": "db://assets/resources/textures/particles/particle_texture.jpg",
+    "value": {},
+    "versionCode": 1
+  },
+  "69e1eb3b-ab2c-4d94-be49-33c3688180d0@6c48a": {
+    "url": "db://assets/resources/textures/game/btn_blue_bg.png@6c48a",
+    "value": {
+      "depends": [
+        "69e1eb3b-ab2c-4d94-be49-33c3688180d0"
+      ]
+    },
+    "versionCode": 1
+  },
+  "be70abf1-3151-4c9a-afa9-7658da63ab65@6c48a": {
+    "url": "db://assets/resources/textures/game/default_avatar.png@6c48a",
+    "value": {
+      "depends": [
+        "be70abf1-3151-4c9a-afa9-7658da63ab65"
+      ]
+    },
+    "versionCode": 1
+  },
+  "69e1eb3b-ab2c-4d94-be49-33c3688180d0@f9941": {
+    "url": "db://assets/resources/textures/game/btn_blue_bg.png@f9941",
+    "value": {
+      "depends": [
+        "69e1eb3b-ab2c-4d94-be49-33c3688180d0@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "60d35b8f-e483-44a9-b577-4fe9d68e7c94": {
+    "url": "db://assets/resources/textures/ui/background.jpg",
+    "value": {},
+    "versionCode": 1
+  },
+  "be70abf1-3151-4c9a-afa9-7658da63ab65@f9941": {
+    "url": "db://assets/resources/textures/game/default_avatar.png@f9941",
+    "value": {
+      "depends": [
+        "be70abf1-3151-4c9a-afa9-7658da63ab65@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "862af889-0ba8-43b6-868d-a48b67360ba7@f9941": {
+    "url": "db://assets/resources/textures/game/cell_user_bg.png@f9941",
+    "value": {
+      "depends": [
+        "862af889-0ba8-43b6-868d-a48b67360ba7@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "178676da-a2a0-4fcf-b638-b30b1e163bf2@f9941": {
+    "url": "db://assets/resources/textures/game/cell_selected_highlight.png@f9941",
+    "value": {
+      "depends": [
+        "178676da-a2a0-4fcf-b638-b30b1e163bf2@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0e74a6c5-3bca-4320-bfb5-94262476b847": {
+    "url": "db://assets/resources/textures/ui/clear_icon.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "e25104c7-7183-4a0c-abe4-2e3dabc58bbd": {
+    "url": "db://assets/resources/textures/ui/icon_pause.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "c0b2c744-4b57-418f-bc63-62bb1f8a7145": {
+    "url": "db://assets/resources/textures/ui/icon_resume.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "39178ba4-cfdb-4a6e-849f-f16dece74c50": {
+    "url": "db://assets/resources/textures/ui/icon_settings.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "60d35b8f-e483-44a9-b577-4fe9d68e7c94@6c48a": {
+    "url": "db://assets/resources/textures/ui/background.jpg@6c48a",
+    "value": {
+      "depends": [
+        "60d35b8f-e483-44a9-b577-4fe9d68e7c94"
+      ]
+    },
+    "versionCode": 1
+  },
+  "c0b2c744-4b57-418f-bc63-62bb1f8a7145@6c48a": {
+    "url": "db://assets/resources/textures/ui/icon_resume.png@6c48a",
+    "value": {
+      "depends": [
+        "c0b2c744-4b57-418f-bc63-62bb1f8a7145"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0e74a6c5-3bca-4320-bfb5-94262476b847@6c48a": {
+    "url": "db://assets/resources/textures/ui/clear_icon.png@6c48a",
+    "value": {
+      "depends": [
+        "0e74a6c5-3bca-4320-bfb5-94262476b847"
+      ]
+    },
+    "versionCode": 1
+  },
+  "e25104c7-7183-4a0c-abe4-2e3dabc58bbd@6c48a": {
+    "url": "db://assets/resources/textures/ui/icon_pause.png@6c48a",
+    "value": {
+      "depends": [
+        "e25104c7-7183-4a0c-abe4-2e3dabc58bbd"
+      ]
+    },
+    "versionCode": 1
+  },
+  "c0b2c744-4b57-418f-bc63-62bb1f8a7145@f9941": {
+    "url": "db://assets/resources/textures/ui/icon_resume.png@f9941",
+    "value": {
+      "depends": [
+        "c0b2c744-4b57-418f-bc63-62bb1f8a7145@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "08e7e8b8-e2f4-4741-aa51-f41d2ef8f600": {
+    "url": "db://assets/resources/textures/ui/settings_bg.jpg",
+    "value": {},
+    "versionCode": 1
+  },
+  "e25104c7-7183-4a0c-abe4-2e3dabc58bbd@f9941": {
+    "url": "db://assets/resources/textures/ui/icon_pause.png@f9941",
+    "value": {
+      "depends": [
+        "e25104c7-7183-4a0c-abe4-2e3dabc58bbd@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0e74a6c5-3bca-4320-bfb5-94262476b847@f9941": {
+    "url": "db://assets/resources/textures/ui/clear_icon.png@f9941",
+    "value": {
+      "depends": [
+        "0e74a6c5-3bca-4320-bfb5-94262476b847@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "aab8eab8-80a9-4306-bb68-aca3b04df729": {
+    "url": "db://assets/resources/textures/game/numbers/1.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "b570f506-770a-4b95-b225-ee3fc292075a": {
+    "url": "db://assets/resources/textures/game/numbers/2.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "39178ba4-cfdb-4a6e-849f-f16dece74c50@6c48a": {
+    "url": "db://assets/resources/textures/ui/icon_settings.png@6c48a",
+    "value": {
+      "depends": [
+        "39178ba4-cfdb-4a6e-849f-f16dece74c50"
+      ]
+    },
+    "versionCode": 1
+  },
+  "39178ba4-cfdb-4a6e-849f-f16dece74c50@f9941": {
+    "url": "db://assets/resources/textures/ui/icon_settings.png@f9941",
+    "value": {
+      "depends": [
+        "39178ba4-cfdb-4a6e-849f-f16dece74c50@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1481361e-e818-473e-bd29-dc0b8f8b0fe8": {
+    "url": "db://assets/resources/textures/game/numbers/3.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "aab8eab8-80a9-4306-bb68-aca3b04df729@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/1.png@6c48a",
+    "value": {
+      "depends": [
+        "aab8eab8-80a9-4306-bb68-aca3b04df729"
+      ]
+    },
+    "versionCode": 1
+  },
+  "08e7e8b8-e2f4-4741-aa51-f41d2ef8f600@6c48a": {
+    "url": "db://assets/resources/textures/ui/settings_bg.jpg@6c48a",
+    "value": {
+      "depends": [
+        "08e7e8b8-e2f4-4741-aa51-f41d2ef8f600"
+      ]
+    },
+    "versionCode": 1
+  },
+  "b570f506-770a-4b95-b225-ee3fc292075a@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/2.png@6c48a",
+    "value": {
+      "depends": [
+        "b570f506-770a-4b95-b225-ee3fc292075a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "aab8eab8-80a9-4306-bb68-aca3b04df729@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/1.png@f9941",
+    "value": {
+      "depends": [
+        "aab8eab8-80a9-4306-bb68-aca3b04df729@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9abe4991-83b8-41ae-9f89-9d39196793f2": {
+    "url": "db://assets/resources/textures/game/numbers/4.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "b570f506-770a-4b95-b225-ee3fc292075a@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/2.png@f9941",
+    "value": {
+      "depends": [
+        "b570f506-770a-4b95-b225-ee3fc292075a@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "011e69a9-8c7d-4234-851f-75e41bb9bdd8": {
+    "url": "db://assets/resources/textures/game/numbers/5.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "1481361e-e818-473e-bd29-dc0b8f8b0fe8@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/3.png@6c48a",
+    "value": {
+      "depends": [
+        "1481361e-e818-473e-bd29-dc0b8f8b0fe8"
+      ]
+    },
+    "versionCode": 1
+  },
+  "011e69a9-8c7d-4234-851f-75e41bb9bdd8@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/5.png@6c48a",
+    "value": {
+      "depends": [
+        "011e69a9-8c7d-4234-851f-75e41bb9bdd8"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9abe4991-83b8-41ae-9f89-9d39196793f2@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/4.png@6c48a",
+    "value": {
+      "depends": [
+        "9abe4991-83b8-41ae-9f89-9d39196793f2"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1481361e-e818-473e-bd29-dc0b8f8b0fe8@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/3.png@f9941",
+    "value": {
+      "depends": [
+        "1481361e-e818-473e-bd29-dc0b8f8b0fe8@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "22dd502d-9dd9-4b1c-93dd-99db7ee8e4fa": {
+    "url": "db://assets/resources/textures/game/numbers/6.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "011e69a9-8c7d-4234-851f-75e41bb9bdd8@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/5.png@f9941",
+    "value": {
+      "depends": [
+        "011e69a9-8c7d-4234-851f-75e41bb9bdd8@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4582f3d8-ddd9-4d5a-932c-93c0e367278f": {
+    "url": "db://assets/resources/textures/game/numbers/7.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "9abe4991-83b8-41ae-9f89-9d39196793f2@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/4.png@f9941",
+    "value": {
+      "depends": [
+        "9abe4991-83b8-41ae-9f89-9d39196793f2@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0042d507-e7f7-41d3-8d20-ba2c94e92295": {
+    "url": "db://assets/resources/textures/game/numbers/8.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "08e7e8b8-e2f4-4741-aa51-f41d2ef8f600@f9941": {
+    "url": "db://assets/resources/textures/ui/settings_bg.jpg@f9941",
+    "value": {
+      "depends": [
+        "08e7e8b8-e2f4-4741-aa51-f41d2ef8f600@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "60d35b8f-e483-44a9-b577-4fe9d68e7c94@f9941": {
+    "url": "db://assets/resources/textures/ui/background.jpg@f9941",
+    "value": {
+      "depends": [
+        "60d35b8f-e483-44a9-b577-4fe9d68e7c94@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3e3225ba-fc65-4608-b36e-2f3b777ce0f0": {
+    "url": "db://assets/resources/textures/game/numbers/9.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "99d546e6-c2e1-4f81-bade-477d0c405566": {
+    "url": "db://assets/resources/textures/game/numbers/number_pad_bg_valid.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "22dd502d-9dd9-4b1c-93dd-99db7ee8e4fa@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/6.png@6c48a",
+    "value": {
+      "depends": [
+        "22dd502d-9dd9-4b1c-93dd-99db7ee8e4fa"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4582f3d8-ddd9-4d5a-932c-93c0e367278f@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/7.png@6c48a",
+    "value": {
+      "depends": [
+        "4582f3d8-ddd9-4d5a-932c-93c0e367278f"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3e3225ba-fc65-4608-b36e-2f3b777ce0f0@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/9.png@6c48a",
+    "value": {
+      "depends": [
+        "3e3225ba-fc65-4608-b36e-2f3b777ce0f0"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0042d507-e7f7-41d3-8d20-ba2c94e92295@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/8.png@6c48a",
+    "value": {
+      "depends": [
+        "0042d507-e7f7-41d3-8d20-ba2c94e92295"
+      ]
+    },
+    "versionCode": 1
+  },
+  "99d546e6-c2e1-4f81-bade-477d0c405566@6c48a": {
+    "url": "db://assets/resources/textures/game/numbers/number_pad_bg_valid.png@6c48a",
+    "value": {
+      "depends": [
+        "99d546e6-c2e1-4f81-bade-477d0c405566"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4582f3d8-ddd9-4d5a-932c-93c0e367278f@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/7.png@f9941",
+    "value": {
+      "depends": [
+        "4582f3d8-ddd9-4d5a-932c-93c0e367278f@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "22dd502d-9dd9-4b1c-93dd-99db7ee8e4fa@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/6.png@f9941",
+    "value": {
+      "depends": [
+        "22dd502d-9dd9-4b1c-93dd-99db7ee8e4fa@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3e3225ba-fc65-4608-b36e-2f3b777ce0f0@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/9.png@f9941",
+    "value": {
+      "depends": [
+        "3e3225ba-fc65-4608-b36e-2f3b777ce0f0@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0042d507-e7f7-41d3-8d20-ba2c94e92295@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/8.png@f9941",
+    "value": {
+      "depends": [
+        "0042d507-e7f7-41d3-8d20-ba2c94e92295@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "99d546e6-c2e1-4f81-bade-477d0c405566@f9941": {
+    "url": "db://assets/resources/textures/game/numbers/number_pad_bg_valid.png@f9941",
+    "value": {
+      "depends": [
+        "99d546e6-c2e1-4f81-bade-477d0c405566@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "820a9c8e-5bba-40a6-8699-881ee39c0bb9": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_invalid.png",
+    "value": {},
+    "versionCode": 1
+  },
+  "820a9c8e-5bba-40a6-8699-881ee39c0bb9@6c48a": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_invalid.png@6c48a",
+    "value": {
+      "depends": [
+        "820a9c8e-5bba-40a6-8699-881ee39c0bb9"
+      ]
+    },
+    "versionCode": 1
+  },
+  "820a9c8e-5bba-40a6-8699-881ee39c0bb9@f9941": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_invalid.png@f9941",
+    "value": {
+      "depends": [
+        "820a9c8e-5bba-40a6-8699-881ee39c0bb9@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a1b6da06-aa07-4746-9039-da9b54819bab@f9941": {
+    "url": "db://assets/resources/textures/game/cell_preset_bg.png@f9941",
+    "value": {
+      "depends": [
+        "a1b6da06-aa07-4746-9039-da9b54819bab@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9aab3f6a-1090-42fe-80a7-ff7a5baaacf4": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_valid.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "cb31ac6c-2a20-4444-a5a5-cd6b23bf107c": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_valid_select.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "cb31ac6c-2a20-4444-a5a5-cd6b23bf107c@6c48a": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_valid_select.png@6c48a",
+    "value": {
+      "depends": [
+        "cb31ac6c-2a20-4444-a5a5-cd6b23bf107c"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9aab3f6a-1090-42fe-80a7-ff7a5baaacf4@6c48a": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_valid.png@6c48a",
+    "value": {
+      "depends": [
+        "9aab3f6a-1090-42fe-80a7-ff7a5baaacf4"
+      ]
+    },
+    "versionCode": 1
+  },
+  "cb31ac6c-2a20-4444-a5a5-cd6b23bf107c@f9941": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_valid_select.png@f9941",
+    "value": {
+      "depends": [
+        "cb31ac6c-2a20-4444-a5a5-cd6b23bf107c@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "9aab3f6a-1090-42fe-80a7-ff7a5baaacf4@f9941": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_valid.png@f9941",
+    "value": {
+      "depends": [
+        "9aab3f6a-1090-42fe-80a7-ff7a5baaacf4@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4eb4debe-fa79-4d4c-8c37-930632fb8805": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_invalid.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "4eb4debe-fa79-4d4c-8c37-930632fb8805@6c48a": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_invalid.png@6c48a",
+    "value": {
+      "depends": [
+        "4eb4debe-fa79-4d4c-8c37-930632fb8805"
+      ]
+    },
+    "versionCode": 1
+  },
+  "4eb4debe-fa79-4d4c-8c37-930632fb8805@f9941": {
+    "url": "db://assets/resources/textures/ui/number_pad_bg_invalid.png@f9941",
+    "value": {
+      "depends": [
+        "4eb4debe-fa79-4d4c-8c37-930632fb8805@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "ca667e54-6d78-4218-8976-5b144690e5d1": {
+    "url": "db://assets/prefabs/NumberButton.prefab",
+    "value": {
+      "depends": [
+        "9aab3f6a-1090-42fe-80a7-ff7a5baaacf4@f9941",
+        "cb31ac6c-2a20-4444-a5a5-cd6b23bf107c@f9941",
+        "4eb4debe-fa79-4d4c-8c37-930632fb8805@f9941"
+      ],
+      "dependScripts": [
+        "2c986579-94eb-4968-b1f8-94164b26e919"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3ea0dceb-bcbb-44f3-a852-893b7e2fcf0f": {
+    "url": "db://assets/prefabs/WinParticles.prefab",
+    "value": {
+      "depends": [
+        "e17b4526-57a2-48d3-acc9-cf09f30aa138",
+        "24c419ea-63a8-4ea1-a9d0-7fc469489bbc@f9941"
+      ],
+      "dependScripts": []
+    },
+    "versionCode": 1
+  }
+}
