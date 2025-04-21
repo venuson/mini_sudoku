@@ -100,7 +100,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       _cclegacy._RF.push({}, "1fc56ggYntCtazMrgBSowoz", "UIManager", undefined); // assets/scripts/managers/UIManager.ts
 
 
-      __checkObsolete__(['_decorator', 'Component', 'Node', 'Label', 'Button', 'Prefab', 'Sprite', 'Color', 'director', 'log', 'warn', 'error', 'instantiate', 'isValid', 'SpriteFrame', 'resources', 'UITransform', 'Vec3', 'Layout', 'UIOpacity', 'tween']); // 需要 EffectsManager 实例来播放动画
+      __checkObsolete__(['_decorator', 'Component', 'Node', 'Label', 'Button', 'Prefab', 'Sprite', 'director', 'warn', 'error', 'instantiate', 'isValid', 'SpriteFrame', 'resources', 'Vec3', 'UIOpacity', 'tween']); // 需要 EffectsManager 实例来播放动画
       // 引入 NumberButton 组件
 
 
@@ -220,15 +220,9 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           // 输入控制区域
           _initializerDefineProperty(this, "numberPadNode", _descriptor12, this);
 
-          // private numberButtons: Map<number, Button> = new Map(); // 存储数字按钮引用
-          // private numberButtonSprites: Map<number, Sprite> = new Map(); // 存储数字按钮背景 Sprite
           this._numberButtonComponents = new Map();
-          // 缓存 NumberButton 组件实例
-          this._validNumPadFrame = null;
-          // 缓存有效状态的背景帧
-          this._invalidNumPadFrame = null;
 
-          // 缓存无效状态的背景帧
+          // 缓存 NumberButton 组件实例
           _initializerDefineProperty(this, "clearButton", _descriptor13, this);
 
           _initializerDefineProperty(this, "undoButton", _descriptor14, this);
@@ -340,39 +334,13 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         setupInitialUIState() {
-          var _this$clearButton, _this$timerLabel;
-
           console.log('[UIManager] 设置初始 UI 状态...'); // 检查并确保广告层初始隐藏
 
           if (this.adOverlayNode) {
             this.adOverlayNode.active = false;
           } else {
-            // AdOverlay 是可选的，如果没设置，只记录警告
             console.warn('[UIManager] AdOverlayNode 未在编辑器中设置，无法设置初始状态。');
-          } // 检查并确保难度选择器初始可见 (因为游戏通常从菜单开始)
-
-
-          if (this.difficultySelectorNode) {
-            this.difficultySelectorNode.active = true;
-          } else {
-            // DifficultySelector 是核心功能，如果没设置，应该报错
-            console.error('[UIManager] DifficultySelectorNode 未在编辑器中设置！无法显示难度选择。');
-          } // 检查并确保游戏核心 UI 元素初始隐藏
-
-
-          if (this.gameBoardNode) this.gameBoardNode.active = true;else console.error('[UIManager] GameBoardNode 未在编辑器中设置！'); // 棋盘是核心
-
-          if (this.numberPadNode) this.numberPadNode.active = true; // else warn('[UIManager] NumberPadNode 未设置。'); // 数字面板依赖于 numberPadNode
-          // 隐藏功能按钮区域 (假设它们在同一个父节点下)
-
-          const actionButtonContainer = (_this$clearButton = this.clearButton) == null ? void 0 : _this$clearButton.node.parent;
-          if (actionButtonContainer) actionButtonContainer.active = true;else console.warn('[UIManager] 功能按钮 (清除/撤销/恢复) 的容器节点未找到或未设置。'); // 隐藏顶栏 (计时器和按钮)
-
-          const topBarContainer = (_this$timerLabel = this.timerLabel) == null ? void 0 : _this$timerLabel.node.parent;
-          if (topBarContainer) topBarContainer.active = true;else console.warn('[UIManager] 顶栏 (计时器/设置按钮) 的容器节点未找到或未设置。'); // 隐藏底部导航栏 (如果存在)
-
-          if (this.bottomNavBarNode) this.bottomNavBarNode.active = true; // else warn('[UIManager] BottomNavBarNode 未设置。'); // 底部导航是可选的
-          // 弹窗 Prefab 不需要在这里处理，它们在被实例化显示之前默认就是隐藏的
+          }
 
           this._activePopups = []; // 确保活动弹窗列表为空
 
@@ -496,7 +464,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         bindButtonEvents() {
-          var _this$pauseResumeButt, _this$settingsButton, _this$entryButton, _this$easyButton, _this$mediumButton, _this$hardButton, _this$masterButton, _this$clearButton2, _this$undoButton, _this$redoButton, _this$historyNavButto, _this$rankingNavButto;
+          var _this$pauseResumeButt, _this$settingsButton, _this$entryButton, _this$easyButton, _this$mediumButton, _this$hardButton, _this$masterButton, _this$clearButton, _this$undoButton, _this$redoButton, _this$historyNavButto, _this$rankingNavButto;
 
           console.log('[UIManager] Binding button events...'); // 顶栏按钮
 
@@ -527,7 +495,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           }); // 功能按钮
 
 
-          (_this$clearButton2 = this.clearButton) == null || _this$clearButton2.node.on(Button.EventType.CLICK, this.onClearClick, this);
+          (_this$clearButton = this.clearButton) == null || _this$clearButton.node.on(Button.EventType.CLICK, this.onClearClick, this);
           (_this$undoButton = this.undoButton) == null || _this$undoButton.node.on(Button.EventType.CLICK, this.onUndoClick, this);
           (_this$redoButton = this.redoButton) == null || _this$redoButton.node.on(Button.EventType.CLICK, this.onRedoClick, this); // 底部导航按钮 (可选)
 
@@ -562,12 +530,9 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           director.emit((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
           }), Constants) : Constants).EventName.DIFFICULTY_SELECTED, difficulty); // GameManager 监听
-
-          this.showGameUI(); // 选择难度后切换到游戏界面
         }
 
         onNumberPadClick(num) {
-          // console.log(`[UIManager] Number pad clicked: ${num}`); // 这个日志太频繁，可以注释掉
           director.emit((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
           }), Constants) : Constants).EventName.NUMBER_INPUT, num); // InputManager 监听
@@ -640,9 +605,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             this.pauseResumeIcon.spriteFrame = iconFrame;
           } else {
             warn(`[UIManager] 图标 SpriteFrame 未找到: ${iconName}`);
-          } // 可以根据需要启用/禁用按钮交互，但通常按钮一直可点
-          // if (this.pauseResumeButton) this.pauseResumeButton.interactable = true;
-
+          }
         }
         /**
          * 更新撤销和恢复按钮的可交互状态。
@@ -756,23 +719,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
           console.log('[UIManager] 播放胜利动画。this node is: ', this.node.name);
           (_this$effectsManager3 = this.effectsManager) == null || _this$effectsManager3.playWinEffect(this.node); // 添加到 UIManager 所在的 Canvas 节点
-        } // --- 界面切换 ---
-
-
-        showGameUI() {
-          var _this$clearButton3, _this$timerLabel2;
-
-          console.log('[UIManager] 显示游戏 UI。'); // 隐藏难度选择
-
-          if (this.difficultySelectorNode) this.difficultySelectorNode.active = true;else error('[UIManager] DifficultySelectorNode 未设置，无法隐藏。'); // 显示游戏核心元素
-
-          if (this.gameBoardNode) this.gameBoardNode.active = true;else error('[UIManager] GameBoardNode 未设置，无法显示。');
-          if (this.numberPadNode) this.numberPadNode.active = true;else warn('[UIManager] NumberPadNode 未设置。');
-          const actionButtonContainer = (_this$clearButton3 = this.clearButton) == null ? void 0 : _this$clearButton3.node.parent;
-          if (actionButtonContainer) actionButtonContainer.active = true;else warn('[UIManager] 功能按钮容器未找到。');
-          const topBarContainer = (_this$timerLabel2 = this.timerLabel) == null ? void 0 : _this$timerLabel2.node.parent;
-          if (topBarContainer) topBarContainer.active = true;else warn('[UIManager] 顶栏容器未找到。');
-          if (this.bottomNavBarNode) this.bottomNavBarNode.active = true; // else warn('[UIManager] BottomNavBarNode 未设置。');
         }
         /**
          * 显示难度选择界面，隐藏游戏主界面。
@@ -780,19 +726,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         showDifficultySelection() {
-          var _this$clearButton4, _this$timerLabel3;
-
-          console.log('[UIManager] 显示难度选择界面。'); // 显示难度选择
-
-          if (this.difficultySelectorNode) this.difficultySelectorNode.active = true;else console.error('[UIManager] DifficultySelectorNode 未设置，无法显示。'); // 隐藏游戏核心元素
-
-          if (this.gameBoardNode) this.gameBoardNode.active = true;else console.error('[UIManager] GameBoardNode 未设置。');
-          if (this.numberPadNode) this.numberPadNode.active = true;else console.warn('[UIManager] NumberPadNode 未设置。');
-          const actionButtonContainer = (_this$clearButton4 = this.clearButton) == null ? void 0 : _this$clearButton4.node.parent;
-          if (actionButtonContainer) actionButtonContainer.active = true;else console.warn('[UIManager] 功能按钮容器未找到。');
-          const topBarContainer = (_this$timerLabel3 = this.timerLabel) == null ? void 0 : _this$timerLabel3.node.parent;
-          if (topBarContainer) topBarContainer.active = true;else console.warn('[UIManager] 顶栏容器未找到。');
-          if (this.bottomNavBarNode) this.bottomNavBarNode.active = true;else console.warn('[UIManager] BottomNavBarNode 未设置。'); // 清理可能残留的状态
+          console.log('[UIManager] 显示难度选择界面。'); // 清理可能残留的状态
 
           this.deselectCell(); // 清除格子高亮
 

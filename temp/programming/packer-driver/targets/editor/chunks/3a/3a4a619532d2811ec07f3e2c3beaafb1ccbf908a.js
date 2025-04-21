@@ -1,7 +1,7 @@
 System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Component, Node, Prefab, instantiate, UITransform, error, warn, isValid, director, Constants, cloneBoardData, GridCell, _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _crd, ccclass, property, GridManager;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Component, Node, Prefab, instantiate, error, warn, log, isValid, director, UIOpacity, Constants, cloneBoardData, GridCell, _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2, _crd, ccclass, property, GridManager;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -29,6 +29,10 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
     _reporterNs.report("UIManager", "./UIManager", _context.meta, extras);
   }
 
+  function _reportPossibleCrUseOfEffectsManager(extras) {
+    _reporterNs.report("EffectsManager", "./EffectsManager", _context.meta, extras);
+  }
+
   function _reportPossibleCrUseOfGridCell(extras) {
     _reporterNs.report("GridCell", "../components/GridCell", _context.meta, extras);
   }
@@ -45,11 +49,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       Node = _cc.Node;
       Prefab = _cc.Prefab;
       instantiate = _cc.instantiate;
-      UITransform = _cc.UITransform;
       error = _cc.error;
       warn = _cc.warn;
+      log = _cc.log;
       isValid = _cc.isValid;
       director = _cc.director;
+      UIOpacity = _cc.UIOpacity;
     }, function (_unresolved_2) {
       Constants = _unresolved_2.Constants;
     }, function (_unresolved_3) {
@@ -63,23 +68,15 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       _cclegacy._RF.push({}, "dcf23slAg1Isov8T9E0R5KE", "GridManager", undefined); // assets/scripts/managers/GridManager.ts
 
 
-      __checkObsolete__(['_decorator', 'Component', 'Node', 'Prefab', 'instantiate', 'Sprite', 'Label', 'Button', 'UITransform', 'Color', 'error', 'warn', 'log', 'isValid', 'SpriteFrame', 'resources', 'director']); // 需要 BoardData 定义和克隆函数
+      __checkObsolete__(['_decorator', 'Component', 'Node', 'Prefab', 'instantiate', 'UITransform', 'error', 'warn', 'log', 'isValid', 'EventTouch', 'director', 'UIOpacity']); // 需要 BoardData 定义和克隆函数
       // 可能需要 UIManager 引用来获取资源
+      // 引入 EffectsManager
 
 
       ({
         ccclass,
         property
-      } = _decorator); // (可选) 定义格子组件，如果格子本身逻辑复杂
-      // @ccclass('GridCellComponent')
-      // export class GridCellComponent extends Component {
-      //     @property(Sprite) bgSprite: Sprite | null = null;
-      //     @property(Node) numberDisplayNode: Node | null = null; // 可以是 Sprite 或 Label
-      //     @property(Sprite) highlightSprite: Sprite | null = null;
-      //     public row: number = -1;
-      //     public col: number = -1;
-      //     // ... 其他格子特有逻辑
-      // }
+      } = _decorator);
 
       _export("GridManager", GridManager = (_dec = ccclass('GridManager'), _dec2 = property({
         type: Prefab,
@@ -103,19 +100,20 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           this._currentBoardData = null;
           // 存储当前关卡的逻辑数据副本
           this._isInitialized = false;
-          this._cellWidth = 0;
-          // 缓存计算出的格子宽度
-          this._cellHeight = 0;
-          // 缓存计算出的格子高度
+          this._presetCellsToReveal = [];
+          // 存储待显示的预设格子信息
           // --- 依赖 ---
           this.uiManager = null;
+          // 用于获取 SpriteFrame 等资源
+          this.effectsManager = null;
         }
 
-        // 用于获取 SpriteFrame 等资源
+        // 添加 EffectsManager 引用
         // --- 初始化 ---
-        initialize(uiManager) {
+        initialize(uiManager, effectsManager) {
           console.log('[GridManager] Initializing...');
           this.uiManager = uiManager;
+          this.effectsManager = effectsManager;
 
           if (!this.cellPrefab) {
             error('[GridManager] Cell Prefab 未设置!');
@@ -124,6 +122,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
           if (!this.uiManager) {
             error('[GridManager] UIManager instance is required!');
+            return;
+          }
+
+          if (!this.effectsManager) {
+            // 检查 EffectsManager
+            error('[GridManager] EffectsManager instance is required!');
             return;
           }
 
@@ -138,8 +142,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
         createGridCells() {
           console.log('[GridManager] Creating grid cells...');
-          this.node.removeAllChildren(); // 清除旧格子（如果需要重新创建）
-
+          this.node.removeAllChildren();
           this._gridCells = [];
           const gridSize = (_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
@@ -157,41 +160,47 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
               }
 
               this.node.addChild(cellNode);
-              this._gridCells[r][c] = cellNode; // --- 添加点击事件监听 ---
-
+              this._gridCells[r][c] = cellNode;
               cellNode.on(Node.EventType.TOUCH_END, event => {
-                // 可以在这里添加一些触摸判断逻辑，例如触摸点是否在节点内
                 this.onCellNodeClicked(r, c);
-                event.propagationStopped = true; // 阻止事件冒泡到父节点
-              }, this); // 缓存格子尺寸 (假设所有格子尺寸相同)
-
-              if (r === 0 && c === 0) {
-                const uiTransform = cellNode.getComponent(UITransform);
-
-                if (uiTransform) {
-                  this._cellWidth = uiTransform.width;
-                  this._cellHeight = uiTransform.height;
-                  console.log(`[GridManager] 格子尺寸: ${this._cellWidth}x${this._cellHeight}`);
-                }
-              }
+                event.propagationStopped = true;
+              }, this);
             }
           }
 
           console.log(`[GridManager] ${gridSize * gridSize} grid cells created.`);
         }
-        /**
-         * 处理格子节点的点击事件，将事件转发给 InputManager。
-         * @param row 被点击的行
-         * @param col 被点击的列
-         */
-
 
         onCellNodeClicked(row, col) {
-          console.log(`[GridManager] Cell node clicked: (${row}, ${col}). Emitting event.`); // 使用 director 发布全局事件，InputManager 会监听
-
+          console.log(`[GridManager] Cell node clicked: (${row}, ${col}). Emitting event.`);
           director.emit((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
           }), Constants) : Constants).EventName.CELL_CLICKED, row, col);
+        }
+        /**
+         * 随机打乱数组 (Fisher-Yates Shuffle)。
+         * @param array 要打乱的数组。
+         * @private
+         */
+
+
+        shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // ES6 交换元素
+          }
+
+          return array;
+        }
+        /**
+         * 创建一个延迟 Promise。
+         * @param ms 延迟的毫秒数。
+         * @private
+         */
+
+
+        delay(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
         } // --- 数据加载与更新 ---
 
         /**
@@ -208,11 +217,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           }
 
           console.log(`[GridManager] Loading level: ${levelData.difficulty} - ${levelData.levelIndex}`);
-          console.log(`[GridManager] level data: ${levelData.initialBoard}`); // **非常重要**: 克隆棋盘数据，GridManager 只持有显示相关的数据副本
-
+          console.log(`[GridManager] level data: ${levelData.initialBoard}`);
           this._currentBoardData = (_crd && cloneBoardData === void 0 ? (_reportPossibleCrUseOfcloneBoardData({
             error: Error()
           }), cloneBoardData) : cloneBoardData)(levelData.initialBoard);
+          this._presetCellsToReveal = []; // 清空待显示列表
+
           const gridSize = (_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
           }), Constants) : Constants).GRID_SIZE;
@@ -227,7 +237,15 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
               const cellNode = this._gridCells[r][c];
               const value = this._currentBoardData.grid[r][c];
               const isPreset = this._currentBoardData.presetMask[r][c];
-              this.updateCellNode(cellNode, value, isPreset);
+              this.updateCellNode(cellNode, value, isPreset, true);
+
+              if (isPreset && value > 0) {
+                this._presetCellsToReveal.push({
+                  row: r,
+                  col: c,
+                  value: value
+                });
+              }
             }
           }
 
@@ -246,7 +264,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
          */
 
 
-        updateCellNode(cellNode, value, isPreset) {
+        updateCellNode(cellNode, value, isPreset, initialHidePreset = false) {
           if (!isValid(cellNode) || !this.uiManager) return;
           const gridCell = cellNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
             error: Error()
@@ -254,7 +272,71 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
           if (gridCell) {
             gridCell.updateDisplay(value, isPreset, this.uiManager.getNumberSpriteFrame(value));
+
+            if (initialHidePreset && isPreset && value > 0) {
+              console.log(`[GridManager] 初始加载时隐藏预设数字: (${gridCell.row}, ${gridCell.col}) = ${value}`);
+              const numberDisplayNode = gridCell.getNumberDisplayNode();
+
+              if (numberDisplayNode) {
+                numberDisplayNode.setScale(1, 1, 1);
+                const opacity = numberDisplayNode.getComponent(UIOpacity) || numberDisplayNode.addComponent(UIOpacity);
+                opacity.opacity = 255;
+              }
+            }
           }
+        }
+        /**
+         * (新增) 播放预设数字逐个弹出的动画。
+         * @param delayBetweenMs 每个数字弹出之间的延迟（毫秒）。
+         * @returns 返回一个 Promise，在所有动画开始播放后（或完成后）解析。
+         */
+
+
+        async revealPresetNumbersAnimated(delayBetweenMs = 50) {
+          if (!this._isInitialized || !this.effectsManager) {
+            warn('[GridManager] revealPresetNumbersAnimated 调用时未初始化或缺少 EffectsManager。');
+            return;
+          }
+
+          if (this._presetCellsToReveal.length === 0) {
+            log('[GridManager] 没有预设数字需要显示动画。');
+            return;
+          }
+
+          log(`[GridManager] 开始播放 ${this._presetCellsToReveal.length} 个预设数字的显示动画...`); // 随机打乱顺序
+
+          const shuffledPresets = this.shuffleArray([...this._presetCellsToReveal]); // 复制一份再打乱
+
+          for (const preset of shuffledPresets) {
+            const cellNode = this.getCellNode(preset.row, preset.col);
+
+            if (isValid(cellNode)) {
+              let numberDisplayNode = null; // 获取数字节点 (优先使用 GridCell 组件)
+
+              const gridCell = cellNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
+                error: Error()
+              }), GridCell) : GridCell);
+
+              if (gridCell) {
+                gridCell.updateDisplay(preset.value, true, this.uiManager.getNumberSpriteFrame(preset.value));
+                numberDisplayNode = gridCell.getNumberDisplayNode();
+
+                if (numberDisplayNode) {
+                  this.effectsManager.animateNumberAppear(numberDisplayNode);
+                } else {
+                  warn(`[GridManager] 未找到格子 (${preset.row}, ${preset.col}) 的 NumberDisplay 节点用于动画。`);
+                }
+              }
+            } else {
+              warn(`[GridManager] 未找到格子 (${preset.row}, ${preset.col}) 节点用于动画。`);
+            } // 等待一小段时间再显示下一个
+
+
+            await this.delay(delayBetweenMs);
+          }
+
+          log('[GridManager] 所有预设数字动画已开始播放。');
+          this._presetCellsToReveal = []; // 清空列表
         }
         /**
          * 由 InputManager 调用，用于更新特定格子的数字显示（通常是用户操作的结果）。
@@ -300,6 +382,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
         highlightCell(row, col) {
           var _this$_gridCells$row;
 
+          console.log(`[GridManager] Highlighting cell: (${row}, ${col})`);
           if (!this._isInitialized) return;
           if (row < 0 || row >= (_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
@@ -312,21 +395,26 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           const cellNode = (_this$_gridCells$row = this._gridCells[row]) == null ? void 0 : _this$_gridCells$row[col];
 
           if (isValid(cellNode)) {
-            const highlightSpriteNode = cellNode.getChildByName('HighlightSprite');
+            var _cellNode$getComponen;
 
-            if (highlightSpriteNode) {
-              highlightSpriteNode.active = true;
-              this._currentSelectedNode = cellNode;
+            (_cellNode$getComponen = cellNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
+              error: Error()
+            }), GridCell) : GridCell)) == null || _cellNode$getComponen.setHighlight(true);
+
+            if (cellNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
+              error: Error()
+            }), GridCell) : GridCell) && cellNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
+              error: Error()
+            }), GridCell) : GridCell).getComponent(UIOpacity)) {
+              console.log(`[GridManager] 格子 (${row}, ${col}) 高亮节点已启用。${cellNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
+                error: Error()
+              }), GridCell) : GridCell).getComponent(UIOpacity).opacity}`);
             }
-          } // 方式二：移动独立的高亮节点到目标位置
-          // if (this.highlightNode && this._gridCells[row]?.[col]) {
-          //      const targetCellNode = this._gridCells[row][col];
-          //      this.highlightNode.setPosition(targetCellNode.position);
-          //      this.highlightNode.active = true;
-          // }
 
-
-          console.log(`[GridManager] Cell highlighted: (${row}, ${col})`);
+            this._currentSelectedNode = cellNode;
+          } else {
+            console.warn(`[GridManager] 未找到格子 (${row}, ${col}) 节点用于高亮。`);
+          }
         }
         /**
          * 取消所有格子的高亮状态。
@@ -334,15 +422,16 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         deselectCell() {
+          console.log(`[GridManager] Deselecting current cell.`);
           if (!this._isInitialized) return;
 
           if (this._currentSelectedNode) {
-            const highlightSpriteNode = this._currentSelectedNode.getChildByName('HighlightSprite');
+            var _this$_currentSelecte;
 
-            if (highlightSpriteNode) {
-              highlightSpriteNode.active = false;
-              this._currentSelectedNode = null;
-            }
+            (_this$_currentSelecte = this._currentSelectedNode.getComponent(_crd && GridCell === void 0 ? (_reportPossibleCrUseOfGridCell({
+              error: Error()
+            }), GridCell) : GridCell)) == null || _this$_currentSelecte.setHighlight(false);
+            this._currentSelectedNode = null;
           }
         }
         /**

@@ -351,7 +351,7 @@ export class GameManager extends Component {
      * @param difficulty 难度。
      * @param levelIndex 关卡序号 (1-based)。
      */
-    public startNewGame(difficulty: DifficultyType, levelIndex: number): void {
+    public async startNewGame(difficulty: DifficultyType, levelIndex: number): Promise<void>  {
         log(`[GameManager] 开始新游戏: ${difficulty} - ${levelIndex}`);
         // 确保状态不是加载中，避免重复加载
         if (this._currentState === GameState.LOADING_LEVEL) {
@@ -366,32 +366,37 @@ export class GameManager extends Component {
         this._currentLevelIndex = levelIndex;
         this._currentGameTime = 0;
 
-        // 异步生成或加载关卡数据
-        this.loadLevelDataAsync(difficulty, levelIndex).then(levelData => {
-            if (levelData) {
-                this._currentLevelData = levelData;
-                const boardDataClone = this.gridManager!.loadLevel(levelData);
-                if (boardDataClone) {
-                    this.inputManager!.reset(boardDataClone);
-                    // --- 确保游戏 UI 显示 ---
-                    this.uiManager?.showGameUI(); // <--- 确保调用
-                    this.uiManager?.updateTimer(this._currentGameTime);
-                    this.uiManager?.updatePauseResumeButton(false); // 确保按钮是暂停状态
-                    this.startTimer();
-                    this.setGameState(GameState.PLAYING);
-                    log('[GameManager] 关卡加载完成，游戏开始！');
-                } else {
-                     error('[GameManager] 棋盘管理器加载关卡失败！');
-                     this.goToErrorState(); // 进入错误状态或返回菜单
-                }
-            } else {
-                error(`[GameManager] 无法加载关卡数据: ${difficulty} - ${levelIndex}`);
-                this.goToErrorState();
+        try {
+            // 异步生成或加载关卡数据
+            const levelData = await this.loadLevelDataAsync(difficulty, levelIndex); // 使用 await
+            if (!levelData) {
+                throw new Error(`无法加载关卡数据: ${difficulty} - ${levelIndex}`);
             }
-        }).catch(err => {
-             error('[GameManager] 加载关卡数据时发生错误:', err);
-             this.goToErrorState();
-        });
+
+            this._currentLevelData = levelData;
+            // 加载关卡到棋盘 (预设数字此时不显示)
+            const boardDataClone = this.gridManager!.loadLevel(levelData);
+            if (!boardDataClone) {
+                throw new Error('棋盘管理器加载关卡失败！');
+            }
+
+            this.inputManager!.reset(boardDataClone);// 重置输入管理器状态，并传入棋盘数据副本
+            this.uiManager?.updateTimer(this._currentGameTime);// 更新计时器显示为 00:00
+
+            // --- 播放预设数字动画 ---
+            log('[GameManager] 开始播放预设数字动画...');
+            if (this.inputManager) this.inputManager.setInputEnabled(false); // 需要在 InputManager 添加此方法
+            await this.gridManager!.revealPresetNumbersAnimated(15); // 等待动画完成，延迟 60ms
+            log('[GameManager] 预设数字动画完成。');
+
+             if (this.inputManager) this.inputManager.setInputEnabled(true);
+            this.startTimer();
+            this.setGameState(GameState.PLAYING);
+            log('[GameManager] 关卡加载完成，游戏开始！');
+
+        } catch (err) {
+            error('[GameManager] 开始新游戏时发生错误:', err); // 加载或动画失败返回菜单
+        }
     }
 
     /**
@@ -566,17 +571,13 @@ export class GameManager extends Component {
      */
     public goToMenu(): void {
         console.log('[GameManager] 返回主菜单。');
-        // 只有在非菜单状态下才执行切换逻辑
         if (this._currentState !== GameState.MENU) {
             this.setGameState(GameState.MENU);
             this.stopTimer();
-            // this.audioManager?.playBGM(Constants.AudioClipName.MENU_BGM); // 播放菜单 BGM
             this.uiManager?.showDifficultySelection(); // <--- 显示难度选择界面
             this._currentDifficulty = null;
             this._currentLevelIndex = 0;
             this._currentLevelData = null;
-            // 清理存档的逻辑可以根据需要添加或移除
-            // PersistenceManager.clearUnfinishedGame();
         }
     }
 

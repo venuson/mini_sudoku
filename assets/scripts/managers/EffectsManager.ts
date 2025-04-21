@@ -1,6 +1,6 @@
 // assets/scripts/managers/EffectsManager.ts
 
-import { _decorator, Component, Node, Prefab, instantiate, ParticleSystem2D, error, warn, log, Vec3, tween, UIOpacity, isValid ,UITransform} from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, ParticleSystem2D, error, warn, Vec3, tween, UIOpacity, isValid ,UITransform} from 'cc';
 import { Constants } from '../utils/Constants';
 
 const { ccclass, property } = _decorator;
@@ -33,14 +33,6 @@ export class EffectsManager extends Component {
             return;
         }
         EffectsManager._instance = this;
-
-        // 如果挂载在 AudioManagerNode 或其他需要持久化的节点上，则不需要再次设置持久化
-        // 如果是独立节点，则需要设置：
-        // if (this.node.parent) {
-        //     director.addPersistRootNode(this.node);
-        //     console.log('[EffectsManager] 节点已设为持久化。');
-        // }
-
         this._isInitialized = true;
         console.log('[EffectsManager] 初始化完成。');
     }
@@ -256,8 +248,10 @@ export class EffectsManager extends Component {
                 { easing: 'sineIn' } // 加速消失
             )
             .call(() => {
-                // 动画完成后的回调
-                // targetNode.active = false; // 动画结束后隐藏节点
+                // 动画完成后的回调, 恢复正常显示
+                targetNode.setScale(1, 1, 1); // 确保节点恢复到原始大小
+                // let op = targetNode.getComponent(UIOpacity) || targetNode.addComponent(UIOpacity);
+                // op.opacity = 255; // 确保完全不透明
                 if (callback) {
                     callback();
                 }
@@ -265,8 +259,8 @@ export class EffectsManager extends Component {
             .start(); // 启动动画
 
         // 同时处理透明度
-        tween(uiOpacity)
-            .to(Constants.Animation.NUMBER_DISAPPEAR_DURATION, { opacity: 0 })
-            .start();
+        // tween(uiOpacity)
+        //     .to(Constants.Animation.NUMBER_DISAPPEAR_DURATION, { opacity: 0 })
+        //     .start();
     }
 }

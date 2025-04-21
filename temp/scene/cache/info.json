@@ -4,6 +4,8 @@
         "cpu": "Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz",
         "version": "Darwin Kernel Version 24.0.0: Mon Aug 12 20:54:30 PDT 2024; root:xnu-11215.1.10~2/RELEASE_X86_64"
     },
-    "sceneListMap": {},
+    "sceneListMap": {
+        "6489fef4-9b0d-41d4-8cb1-3c66774943b1": "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scenes/MainGame.scene"
+    },
     "deviceMd5": "079e5227a7949acfba5fcb09b37fa2e5"
 }

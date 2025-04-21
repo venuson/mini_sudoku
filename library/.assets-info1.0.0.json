@@ -34,7 +34,7 @@
       "uuid": "438a601a-b0dd-404c-b9c7-5616e032aca2"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/components/GridCell.ts": {
-      "time": 1744814807103.1707,
+      "time": 1745073801540.145,
       "uuid": "807433ad-d741-4aae-b3d4-087d4e2a394e"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/components/HistoryItem.ts": {
@@ -42,7 +42,7 @@
       "uuid": "a58257df-3073-48b0-874a-cf6f59a647f8"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/components/NumberButton.ts": {
-      "time": 1744786976623.7024,
+      "time": 1744970942129.8047,
       "uuid": "2c986579-94eb-4968-b1f8-94164b26e919"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/components/PopupBase.ts": {
@@ -82,27 +82,27 @@
       "uuid": "f43b1593-0bde-4ef4-ba4a-ecd7bc4d7d2c"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/managers/AudioManager.ts": {
-      "time": 1744816464344.2778,
+      "time": 1745063457911.9165,
       "uuid": "284b17fb-59b7-4144-b131-6176ebc5a1bd"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/managers/EffectsManager.ts": {
-      "time": 1744907060511.8982,
+      "time": 1745072360175.8894,
       "uuid": "3c60a35f-c706-4d01-964f-5751bdf0f277"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/managers/GameManager.ts": {
-      "time": 1744816094068.3186,
+      "time": 1744969813941.6057,
       "uuid": "bf62c4e1-951d-476d-8dd6-b8e1ddd44cff"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/managers/GridManager.ts": {
-      "time": 1744790591131.9316,
+      "time": 1745073911532.9114,
       "uuid": "dcf23b25-020d-48b2-8bfc-4fd134479284"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/managers/InputManager.ts": {
-      "time": 1744905518508.9824,
+      "time": 1745075029902.9165,
       "uuid": "ba489078-cd24-4228-a06f-6815baa48edf"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/managers/UIManager.ts": {
-      "time": 1744907380975.3794,
+      "time": 1745072641255.403,
       "uuid": "1fc56820-627b-42b5-accc-ae0052a30a33"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/services/CloudService.ts": {
@@ -212,7 +212,7 @@
       "time": 1743501901766.0464
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scenes/MainGame.scene": {
-      "time": 1744868579555.8108,
+      "time": 1744966099118.2908,
       "uuid": "6489fef4-9b0d-41d4-8cb1-3c66774943b1"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scenes/MainGame.scene.meta": {
@@ -264,7 +264,7 @@
       "time": 1744128223074.114
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/scripts/components/SettingsPopupController.ts": {
-      "time": 1744817636463.631,
+      "time": 1744970530243.3464,
       "uuid": "ef9394b9-aaa6-4f9b-b311-9e0c8954c3d7"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/prefabs/HistoryPopup.prefab.meta": {
@@ -407,7 +407,7 @@
       "uuid": "76534910-982e-4e9c-98f7-332225a981a4"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui": {
-      "time": 1744645785618.4229,
+      "time": 1744966066192.112,
       "uuid": "b233c638-80b6-4c46-be8a-7abed7d83d34"
     },
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/game/numbers": {
@@ -595,6 +595,55 @@
     "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/prefabs/WinParticles.prefab": {
       "time": 1744863826110.8074,
       "uuid": "3ea0dceb-bcbb-44f3-a852-893b7e2fcf0f"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/rank_button.png.meta": {
+      "time": 1744965269583.2751
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/record_button.png.meta": {
+      "time": 1744965269792.73
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/rank_button.png": {
+      "time": 1744965075381.266,
+      "uuid": "167b59ae-ce4c-424d-a325-34478ceb1c57"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/record_button.png": {
+      "time": 1744965054761.648,
+      "uuid": "a388ca28-32ec-4907-a990-88546eb3a205"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/delete.png.meta": {
+      "time": 1744965824476.053
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/redo.png.meta": {
+      "time": 1744965824475.141
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/undo.png.meta": {
+      "time": 1744965824469.8198
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/undo.png": {
+      "time": 1744966045658.74,
+      "uuid": "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/redo.png": {
+      "time": 1744966033209.7048,
+      "uuid": "3f3de2c6-da03-42f4-b228-cc7f513f25f8"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/delete.png": {
+      "time": 1744965617523.1455,
+      "uuid": "bbc16def-278b-4a8e-a3a7-3f233f90f783"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/redo_dis.png.meta": {
+      "time": 1744965987455.791
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/undo_dis.png.meta": {
+      "time": 1744965987458.7917
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/redo_dis.png": {
+      "time": 1744965949307.972,
+      "uuid": "0393844e-78ab-40e3-a0ab-dd0851a41744"
+    },
+    "/Users/ruiwei/Documents/cocos/SudokuWechatGame/assets/resources/textures/ui/undo_dis.png": {
+      "time": 1744965937613.9211,
+      "uuid": "1309514f-6d3e-4a2d-97d7-487e2cec5bbf"
     }
   },
   "missing": {

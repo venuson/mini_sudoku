@@ -1,6 +1,6 @@
 // assets/scripts/managers/GridManager.ts
 
-import { _decorator, Component, Node, Prefab, instantiate, Sprite, Label, Button, UITransform, Color, error, warn, log, isValid, SpriteFrame, resources,director ,UIOpacity} from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, UITransform, error, warn, log, isValid, EventTouch,director ,UIOpacity} from 'cc';
 import { Constants } from '../utils/Constants';
 import { BoardData, LevelData, cloneBoardData } from '../data/GameData'; // 需要 BoardData 定义和克隆函数
 import { UIManager } from './UIManager'; // 可能需要 UIManager 引用来获取资源
@@ -9,16 +9,6 @@ import { GridCell } from '../components/GridCell';
 
 const { ccclass, property } = _decorator;
 
-// (可选) 定义格子组件，如果格子本身逻辑复杂
-// @ccclass('GridCellComponent')
-// export class GridCellComponent extends Component {
-//     @property(Sprite) bgSprite: Sprite | null = null;
-//     @property(Node) numberDisplayNode: Node | null = null; // 可以是 Sprite 或 Label
-//     @property(Sprite) highlightSprite: Sprite | null = null;
-//     public row: number = -1;
-//     public col: number = -1;
-//     // ... 其他格子特有逻辑
-// }
 
 @ccclass('GridManager')
 export class GridManager extends Component {
@@ -34,8 +24,6 @@ export class GridManager extends Component {
     private _gridCells: Node[][] = []; // 存储所有格子节点的二维数组
     private _currentBoardData: BoardData | null = null; // 存储当前关卡的逻辑数据副本
     private _isInitialized: boolean = false;
-    private _cellWidth: number = 0; // 缓存计算出的格子宽度
-    private _cellHeight: number = 0; // 缓存计算出的格子高度
     private _presetCellsToReveal: { row: number, col: number, value: number }[] = []; // 存储待显示的预设格子信息
 
     // --- 依赖 ---
@@ -70,7 +58,7 @@ export class GridManager extends Component {
      */
     private createGridCells(): void {
         console.log('[GridManager] Creating grid cells...');
-        this.node.removeAllChildren(); // 清除旧格子（如果需要重新创建）
+        this.node.removeAllChildren(); 
         this._gridCells = [];
 
         const gridSize = Constants.GRID_SIZE;
@@ -85,36 +73,18 @@ export class GridManager extends Component {
                 this.node.addChild(cellNode);
                 this._gridCells[r][c] = cellNode;
 
-                // --- 添加点击事件监听 ---
                 cellNode.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
-                    // 可以在这里添加一些触摸判断逻辑，例如触摸点是否在节点内
                     this.onCellNodeClicked(r, c);
-                    event.propagationStopped = true; // 阻止事件冒泡到父节点
+                    event.propagationStopped = true; 
                 }, this);
-
-                // 缓存格子尺寸 (假设所有格子尺寸相同)
-                if (r === 0 && c === 0) {
-                    const uiTransform = cellNode.getComponent(UITransform);
-                    if (uiTransform) {
-                        this._cellWidth = uiTransform.width;
-                        this._cellHeight = uiTransform.height;
-                        console.log(`[GridManager] 格子尺寸: ${this._cellWidth}x${this._cellHeight}`);
-                    }
-                }
             }
         }
         console.log(`[GridManager] ${gridSize * gridSize} grid cells created.`);
     }
 
-    /**
-     * 处理格子节点的点击事件，将事件转发给 InputManager。
-     * @param row 被点击的行
-     * @param col 被点击的列
-     */
-    
+
     private onCellNodeClicked(row: number, col: number): void {
         console.log(`[GridManager] Cell node clicked: (${row}, ${col}). Emitting event.`);
-        // 使用 director 发布全局事件，InputManager 会监听
         director.emit(Constants.EventName.CELL_CLICKED, row, col);
     }
 
@@ -154,7 +124,6 @@ export class GridManager extends Component {
         }
         console.log(`[GridManager] Loading level: ${levelData.difficulty} - ${levelData.levelIndex}`);
         console.log(`[GridManager] level data: ${levelData.initialBoard}`);
-        // **非常重要**: 克隆棋盘数据，GridManager 只持有显示相关的数据副本
         this._currentBoardData = cloneBoardData(levelData.initialBoard);
         this._presetCellsToReveal = []; // 清空待显示列表
 
@@ -195,10 +164,9 @@ export class GridManager extends Component {
             gridCell.updateDisplay(value, isPreset, this.uiManager.getNumberSpriteFrame(value));
 
             if (initialHidePreset && isPreset && value > 0) {
+                console.log(`[GridManager] 初始加载时隐藏预设数字: (${gridCell.row}, ${gridCell.col}) = ${value}`);
                 const numberDisplayNode = gridCell.getNumberDisplayNode();
                 if (numberDisplayNode) {
-                    numberDisplayNode.active = false;
-                    // 重置动画可能需要的属性
                     numberDisplayNode.setScale(1, 1, 1);
                     const opacity = numberDisplayNode.getComponent(UIOpacity) || numberDisplayNode.addComponent(UIOpacity);
                     opacity.opacity = 255;
@@ -235,7 +203,6 @@ export class GridManager extends Component {
                 // 获取数字节点 (优先使用 GridCell 组件)
                 const gridCell = cellNode.getComponent(GridCell);
                 if (gridCell) {
-                    // 确保数字和颜色正确设置 (updateDisplay 可能已被调用，但节点是隐藏的)
                     gridCell.updateDisplay(preset.value, true, this.uiManager.getNumberSpriteFrame(preset.value));
                     numberDisplayNode = gridCell.getNumberDisplayNode();
                     if (numberDisplayNode) {
@@ -244,9 +211,6 @@ export class GridManager extends Component {
                          warn(`[GridManager] 未找到格子 (${preset.row}, ${preset.col}) 的 NumberDisplay 节点用于动画。`);
                     }
                 }
-
-
-                
             } else {
                  warn(`[GridManager] 未找到格子 (${preset.row}, ${preset.col}) 节点用于动画。`);
             }
@@ -267,11 +231,11 @@ export class GridManager extends Component {
      * @param isPreset 理论上用户操作的都不是预设，但保留参数以防万一
      */
     public updateCellDisplay(row: number, col: number, value: number, isPreset: boolean): void {
-         if (!this._isInitialized) {
+        if (!this._isInitialized) {
             console.warn('[GridManager] updateCellDisplay 在初始化之前被调用。');
             return;
         }
-         if (row < 0 || row >= Constants.GRID_SIZE || col < 0 || col >= Constants.GRID_SIZE) {
+        if (row < 0 || row >= Constants.GRID_SIZE || col < 0 || col >= Constants.GRID_SIZE) {
             console.error(`[GridManager] updateCellDisplay 收到无效的行列索引: (${row}, ${col})`);
              return;
          }
@@ -294,6 +258,7 @@ export class GridManager extends Component {
      * @param col 列
      */
     public highlightCell(row: number, col: number): void {
+        console.log(`[GridManager] Highlighting cell: (${row}, ${col})`);
         if (!this._isInitialized) return;
         if (row < 0 || row >= Constants.GRID_SIZE || col < 0 || col >= Constants.GRID_SIZE) return;
 
@@ -303,34 +268,26 @@ export class GridManager extends Component {
         // 方式一：激活格子内部的高亮节点
         const cellNode = this._gridCells[row]?.[col];
         if (isValid(cellNode)) {
-            const highlightSpriteNode = cellNode.getChildByName('HighlightSprite');
-            if (highlightSpriteNode) {
-                highlightSpriteNode.active = true;
-                this._currentSelectedNode = cellNode;
+            cellNode.getComponent(GridCell)?.setHighlight(true);
+            if(cellNode.getComponent(GridCell) && cellNode.getComponent(GridCell).getComponent(UIOpacity)){
+                console.log(`[GridManager] 格子 (${row}, ${col}) 高亮节点已启用。${cellNode.getComponent(GridCell).getComponent(UIOpacity).opacity}`);
             }
+            
+            this._currentSelectedNode = cellNode;
+        } else {
+            console.warn(`[GridManager] 未找到格子 (${row}, ${col}) 节点用于高亮。`);
         }
-
-        // 方式二：移动独立的高亮节点到目标位置
-        // if (this.highlightNode && this._gridCells[row]?.[col]) {
-        //      const targetCellNode = this._gridCells[row][col];
-        //      this.highlightNode.setPosition(targetCellNode.position);
-        //      this.highlightNode.active = true;
-        // }
-         console.log(`[GridManager] Cell highlighted: (${row}, ${col})`);
     }
 
     /**
      * 取消所有格子的高亮状态。
      */
     public deselectCell(): void {
+        console.log(`[GridManager] Deselecting current cell.`);
         if (!this._isInitialized) return;
-
         if (this._currentSelectedNode) {
-            const highlightSpriteNode = this._currentSelectedNode.getChildByName('HighlightSprite');
-            if (highlightSpriteNode) {
-                highlightSpriteNode.active = false;
-                this._currentSelectedNode = null;
-            }
+            this._currentSelectedNode.getComponent(GridCell)?.setHighlight(false);
+            this._currentSelectedNode = null;
         }
     }
 

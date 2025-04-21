@@ -23,6 +23,13 @@
         "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
         "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
         "ca667e54-6d78-4218-8976-5b144690e5d1",
+        "bbc16def-278b-4a8e-a3a7-3f233f90f783@f9941",
+        "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7@f9941",
+        "1309514f-6d3e-4a2d-97d7-487e2cec5bbf@f9941",
+        "3f3de2c6-da03-42f4-b228-cc7f513f25f8@f9941",
+        "0393844e-78ab-40e3-a0ab-dd0851a41744@f9941",
+        "a388ca28-32ec-4907-a990-88546eb3a205@f9941",
+        "167b59ae-ce4c-424d-a325-34478ceb1c57@f9941",
         "3ea0dceb-bcbb-44f3-a852-893b7e2fcf0f"
       ],
       "dependScripts": [
@@ -1619,6 +1626,181 @@
         "24c419ea-63a8-4ea1-a9d0-7fc469489bbc@f9941"
       ],
       "dependScripts": []
+    },
+    "versionCode": 1
+  },
+  "167b59ae-ce4c-424d-a325-34478ceb1c57": {
+    "url": "db://assets/resources/textures/ui/rank_button.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a388ca28-32ec-4907-a990-88546eb3a205": {
+    "url": "db://assets/resources/textures/ui/record_button.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "167b59ae-ce4c-424d-a325-34478ceb1c57@6c48a": {
+    "url": "db://assets/resources/textures/ui/rank_button.png@6c48a",
+    "value": {
+      "depends": [
+        "167b59ae-ce4c-424d-a325-34478ceb1c57"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a388ca28-32ec-4907-a990-88546eb3a205@6c48a": {
+    "url": "db://assets/resources/textures/ui/record_button.png@6c48a",
+    "value": {
+      "depends": [
+        "a388ca28-32ec-4907-a990-88546eb3a205"
+      ]
+    },
+    "versionCode": 1
+  },
+  "167b59ae-ce4c-424d-a325-34478ceb1c57@f9941": {
+    "url": "db://assets/resources/textures/ui/rank_button.png@f9941",
+    "value": {
+      "depends": [
+        "167b59ae-ce4c-424d-a325-34478ceb1c57@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a388ca28-32ec-4907-a990-88546eb3a205@f9941": {
+    "url": "db://assets/resources/textures/ui/record_button.png@f9941",
+    "value": {
+      "depends": [
+        "a388ca28-32ec-4907-a990-88546eb3a205@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "bbc16def-278b-4a8e-a3a7-3f233f90f783": {
+    "url": "db://assets/resources/textures/ui/delete.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "3f3de2c6-da03-42f4-b228-cc7f513f25f8": {
+    "url": "db://assets/resources/textures/ui/redo.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7": {
+    "url": "db://assets/resources/textures/ui/undo.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7@6c48a": {
+    "url": "db://assets/resources/textures/ui/undo.png@6c48a",
+    "value": {
+      "depends": [
+        "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7"
+      ]
+    },
+    "versionCode": 1
+  },
+  "bbc16def-278b-4a8e-a3a7-3f233f90f783@6c48a": {
+    "url": "db://assets/resources/textures/ui/delete.png@6c48a",
+    "value": {
+      "depends": [
+        "bbc16def-278b-4a8e-a3a7-3f233f90f783"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3f3de2c6-da03-42f4-b228-cc7f513f25f8@6c48a": {
+    "url": "db://assets/resources/textures/ui/redo.png@6c48a",
+    "value": {
+      "depends": [
+        "3f3de2c6-da03-42f4-b228-cc7f513f25f8"
+      ]
+    },
+    "versionCode": 1
+  },
+  "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7@f9941": {
+    "url": "db://assets/resources/textures/ui/undo.png@f9941",
+    "value": {
+      "depends": [
+        "8ded4e91-2d48-48d1-a4fc-5aea14bb74f7@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "3f3de2c6-da03-42f4-b228-cc7f513f25f8@f9941": {
+    "url": "db://assets/resources/textures/ui/redo.png@f9941",
+    "value": {
+      "depends": [
+        "3f3de2c6-da03-42f4-b228-cc7f513f25f8@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "bbc16def-278b-4a8e-a3a7-3f233f90f783@f9941": {
+    "url": "db://assets/resources/textures/ui/delete.png@f9941",
+    "value": {
+      "depends": [
+        "bbc16def-278b-4a8e-a3a7-3f233f90f783@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0393844e-78ab-40e3-a0ab-dd0851a41744": {
+    "url": "db://assets/resources/textures/ui/redo_dis.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "1309514f-6d3e-4a2d-97d7-487e2cec5bbf": {
+    "url": "db://assets/resources/textures/ui/undo_dis.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "0393844e-78ab-40e3-a0ab-dd0851a41744@6c48a": {
+    "url": "db://assets/resources/textures/ui/redo_dis.png@6c48a",
+    "value": {
+      "depends": [
+        "0393844e-78ab-40e3-a0ab-dd0851a41744"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1309514f-6d3e-4a2d-97d7-487e2cec5bbf@6c48a": {
+    "url": "db://assets/resources/textures/ui/undo_dis.png@6c48a",
+    "value": {
+      "depends": [
+        "1309514f-6d3e-4a2d-97d7-487e2cec5bbf"
+      ]
+    },
+    "versionCode": 1
+  },
+  "0393844e-78ab-40e3-a0ab-dd0851a41744@f9941": {
+    "url": "db://assets/resources/textures/ui/redo_dis.png@f9941",
+    "value": {
+      "depends": [
+        "0393844e-78ab-40e3-a0ab-dd0851a41744@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "1309514f-6d3e-4a2d-97d7-487e2cec5bbf@f9941": {
+    "url": "db://assets/resources/textures/ui/undo_dis.png@f9941",
+    "value": {
+      "depends": [
+        "1309514f-6d3e-4a2d-97d7-487e2cec5bbf@6c48a"
+      ]
     },
     "versionCode": 1
   }

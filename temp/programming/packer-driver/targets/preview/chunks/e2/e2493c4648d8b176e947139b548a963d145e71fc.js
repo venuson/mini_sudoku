@@ -97,14 +97,6 @@ System.register(["cc"], function (_export, _context) {
             console.warn("[NumberButton " + this.buttonNumber + "] \u672A\u627E\u5230 Label \u7EC4\u4EF6\u7528\u4E8E\u8BBE\u7F6E\u6570\u5B57\u3002");
           }
         }
-        /**
-         * 设置按钮的有效状态和数字标签颜色。
-         * 背景由 Button 组件根据 interactable 状态自动处理。
-         * 由 UIManager 调用。
-         * @param isValid 数字是否有效 (即是否可以合法填入选中格子)。
-         * @param isCellSelected 当前是否有格子被选中。
-         */
-
 
         setState(isValid) {
           if (this._buttonComponent) {

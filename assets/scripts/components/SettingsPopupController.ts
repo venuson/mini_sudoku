@@ -1,5 +1,5 @@
 // assets/scripts/components/SettingsPopupController.ts
-import { _decorator, Component, Toggle, director } from 'cc';
+import { _decorator, Toggle, director } from 'cc';
 import { PopupBase } from './PopupBase'; // 继承基类
 import { Constants } from '../utils/Constants';
 

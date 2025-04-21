@@ -293,7 +293,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             // 5. 初始化棋盘管理器
 
 
-            _this.gridManager.initialize(_this.uiManager); // 传入依赖
+            _this.gridManager.initialize(_this.uiManager, _this.effectsManager); // 传入依赖
             // 6. 初始化输入管理器
 
 
@@ -577,52 +577,67 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         startNewGame(difficulty, levelIndex) {
-          var _this$uiManager2, _this$effectsManager;
+          var _this4 = this;
 
-          log("[GameManager] \u5F00\u59CB\u65B0\u6E38\u620F: " + difficulty + " - " + levelIndex); // 确保状态不是加载中，避免重复加载
+          return _asyncToGenerator(function* () {
+            var _this4$uiManager, _this4$effectsManager;
 
-          if (this._currentState === GameState.LOADING_LEVEL) {
-            warn('[GameManager] 正在加载关卡中，请稍候...');
-            return;
-          }
+            log("[GameManager] \u5F00\u59CB\u65B0\u6E38\u620F: " + difficulty + " - " + levelIndex); // 确保状态不是加载中，避免重复加载
 
-          this.setGameState(GameState.LOADING_LEVEL);
-          (_this$uiManager2 = this.uiManager) == null || _this$uiManager2.closeAllPopups();
-          (_this$effectsManager = this.effectsManager) == null || _this$effectsManager.stopWinEffect();
-          this._currentDifficulty = difficulty;
-          this._currentLevelIndex = levelIndex;
-          this._currentGameTime = 0; // 异步生成或加载关卡数据
-
-          this.loadLevelDataAsync(difficulty, levelIndex).then(levelData => {
-            if (levelData) {
-              this._currentLevelData = levelData;
-              var boardDataClone = this.gridManager.loadLevel(levelData);
-
-              if (boardDataClone) {
-                var _this$uiManager3, _this$uiManager4, _this$uiManager5;
-
-                this.inputManager.reset(boardDataClone); // --- 确保游戏 UI 显示 ---
-
-                (_this$uiManager3 = this.uiManager) == null || _this$uiManager3.showGameUI(); // <--- 确保调用
-
-                (_this$uiManager4 = this.uiManager) == null || _this$uiManager4.updateTimer(this._currentGameTime);
-                (_this$uiManager5 = this.uiManager) == null || _this$uiManager5.updatePauseResumeButton(false); // 确保按钮是暂停状态
-
-                this.startTimer();
-                this.setGameState(GameState.PLAYING);
-                log('[GameManager] 关卡加载完成，游戏开始！');
-              } else {
-                error('[GameManager] 棋盘管理器加载关卡失败！');
-                this.goToErrorState(); // 进入错误状态或返回菜单
-              }
-            } else {
-              error("[GameManager] \u65E0\u6CD5\u52A0\u8F7D\u5173\u5361\u6570\u636E: " + difficulty + " - " + levelIndex);
-              this.goToErrorState();
+            if (_this4._currentState === GameState.LOADING_LEVEL) {
+              warn('[GameManager] 正在加载关卡中，请稍候...');
+              return;
             }
-          }).catch(err => {
-            error('[GameManager] 加载关卡数据时发生错误:', err);
-            this.goToErrorState();
-          });
+
+            _this4.setGameState(GameState.LOADING_LEVEL);
+
+            (_this4$uiManager = _this4.uiManager) == null || _this4$uiManager.closeAllPopups();
+            (_this4$effectsManager = _this4.effectsManager) == null || _this4$effectsManager.stopWinEffect();
+            _this4._currentDifficulty = difficulty;
+            _this4._currentLevelIndex = levelIndex;
+            _this4._currentGameTime = 0;
+
+            try {
+              var _this4$uiManager2;
+
+              // 异步生成或加载关卡数据
+              var levelData = yield _this4.loadLevelDataAsync(difficulty, levelIndex); // 使用 await
+
+              if (!levelData) {
+                throw new Error("\u65E0\u6CD5\u52A0\u8F7D\u5173\u5361\u6570\u636E: " + difficulty + " - " + levelIndex);
+              }
+
+              _this4._currentLevelData = levelData; // 加载关卡到棋盘 (预设数字此时不显示)
+
+              var boardDataClone = _this4.gridManager.loadLevel(levelData);
+
+              if (!boardDataClone) {
+                throw new Error('棋盘管理器加载关卡失败！');
+              }
+
+              _this4.inputManager.reset(boardDataClone); // 重置输入管理器状态，并传入棋盘数据副本
+
+
+              (_this4$uiManager2 = _this4.uiManager) == null || _this4$uiManager2.updateTimer(_this4._currentGameTime); // 更新计时器显示为 00:00
+              // --- 播放预设数字动画 ---
+
+              log('[GameManager] 开始播放预设数字动画...');
+              if (_this4.inputManager) _this4.inputManager.setInputEnabled(false); // 需要在 InputManager 添加此方法
+
+              yield _this4.gridManager.revealPresetNumbersAnimated(15); // 等待动画完成，延迟 60ms
+
+              log('[GameManager] 预设数字动画完成。');
+              if (_this4.inputManager) _this4.inputManager.setInputEnabled(true);
+
+              _this4.startTimer();
+
+              _this4.setGameState(GameState.PLAYING);
+
+              log('[GameManager] 关卡加载完成，游戏开始！');
+            } catch (err) {
+              error('[GameManager] 开始新游戏时发生错误:', err); // 加载或动画失败返回菜单
+            }
+          })();
         }
         /**
          * 继续之前保存的游戏。
@@ -631,7 +646,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         continueSavedGame(savedProgress) {
-          var _this$uiManager6, _this$effectsManager2;
+          var _this$uiManager2, _this$effectsManager;
 
           log('[GameManager] 继续已保存的游戏...'); // 确保状态不是加载中
 
@@ -641,8 +656,8 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           }
 
           this.setGameState(GameState.LOADING_LEVEL);
-          (_this$uiManager6 = this.uiManager) == null || _this$uiManager6.closeAllPopups();
-          (_this$effectsManager2 = this.effectsManager) == null || _this$effectsManager2.stopWinEffect();
+          (_this$uiManager2 = this.uiManager) == null || _this$uiManager2.closeAllPopups();
+          (_this$effectsManager = this.effectsManager) == null || _this$effectsManager.stopWinEffect();
           this._currentDifficulty = savedProgress.difficulty;
           this._currentLevelIndex = savedProgress.levelIndex;
           this._currentGameTime = savedProgress.elapsedTime;
@@ -655,16 +670,16 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           var boardDataClone = this.gridManager.loadLevel(pseudoLevelData);
 
           if (boardDataClone) {
-            var _this$uiManager7, _this$uiManager8, _this$uiManager9;
+            var _this$uiManager3, _this$uiManager4, _this$uiManager5;
 
             this.inputManager.reset((_crd && cloneBoardData === void 0 ? (_reportPossibleCrUseOfcloneBoardData({
               error: Error()
             }), cloneBoardData) : cloneBoardData)(savedProgress.currentBoardState)); // --- 确保游戏 UI 显示 ---
 
-            (_this$uiManager7 = this.uiManager) == null || _this$uiManager7.showGameUI(); // <--- 确保调用
+            (_this$uiManager3 = this.uiManager) == null || _this$uiManager3.showGameUI(); // <--- 确保调用
 
-            (_this$uiManager8 = this.uiManager) == null || _this$uiManager8.updateTimer(this._currentGameTime);
-            (_this$uiManager9 = this.uiManager) == null || _this$uiManager9.updatePauseResumeButton(false); // 确保按钮是暂停状态
+            (_this$uiManager4 = this.uiManager) == null || _this$uiManager4.updateTimer(this._currentGameTime);
+            (_this$uiManager5 = this.uiManager) == null || _this$uiManager5.updatePauseResumeButton(false); // 确保按钮是暂停状态
 
             this.startTimer();
             this.setGameState(GameState.PLAYING);
@@ -722,12 +737,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         loadLevelDataAsync(difficulty, levelIndex) {
-          var _this4 = this;
+          var _this5 = this;
 
           return _asyncToGenerator(function* () {
             console.log("[GameManager] \u5F02\u6B65\u52A0\u8F7D\u5173\u5361\u6570\u636E: " + difficulty + " - " + levelIndex); // 方案一：本地生成
 
-            var boardData = _this4._sudokuLogic.generateSudoku(difficulty, levelIndex);
+            var boardData = _this5._sudokuLogic.generateSudoku(difficulty, levelIndex);
 
             if (boardData) {
               // 计算空格数
@@ -775,7 +790,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         pauseGame(showAd) {
-          var _this$uiManager10;
+          var _this$uiManager6;
 
           if (showAd === void 0) {
             showAd = true;
@@ -786,12 +801,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           this.setGameState(GameState.PAUSED);
           this.stopTimer(); // this.audioManager?.pauseBGM(); // 暂停背景音乐
 
-          (_this$uiManager10 = this.uiManager) == null || _this$uiManager10.updatePauseResumeButton(true);
+          (_this$uiManager6 = this.uiManager) == null || _this$uiManager6.updatePauseResumeButton(true);
 
           if (showAd) {
-            var _this$uiManager11;
+            var _this$uiManager7;
 
-            var adContainer = (_this$uiManager11 = this.uiManager) == null ? void 0 : _this$uiManager11.showAdOverlay();
+            var adContainer = (_this$uiManager7 = this.uiManager) == null ? void 0 : _this$uiManager7.showAdOverlay();
           }
         }
         /**
@@ -800,7 +815,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         resumeGame() {
-          var _this$uiManager12, _this$uiManager13, _this$uiManager14;
+          var _this$uiManager8, _this$uiManager9, _this$uiManager10;
 
           // 只有从暂停状态或设置弹窗打开的状态才能恢复
           if (this._currentState !== GameState.PAUSED && !this.isPopupActive(this.settingsPopupPrefab)) {
@@ -809,15 +824,15 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           }
 
           console.log('[GameManager] 恢复游戏。');
-          (_this$uiManager12 = this.uiManager) == null || _this$uiManager12.closeAllPopups(); // 关闭可能打开的设置弹窗
+          (_this$uiManager8 = this.uiManager) == null || _this$uiManager8.closeAllPopups(); // 关闭可能打开的设置弹窗
 
-          (_this$uiManager13 = this.uiManager) == null || _this$uiManager13.hideAdOverlay(); // 隐藏广告层
+          (_this$uiManager9 = this.uiManager) == null || _this$uiManager9.hideAdOverlay(); // 隐藏广告层
           // director.emit(Constants.EventName.HIDE_AD); // 通知 AdManager 隐藏广告
 
           this.setGameState(GameState.PLAYING);
           this.startTimer(); // this.audioManager?.resumeBGM();
 
-          (_this$uiManager14 = this.uiManager) == null || _this$uiManager14.updatePauseResumeButton(false);
+          (_this$uiManager10 = this.uiManager) == null || _this$uiManager10.updatePauseResumeButton(false);
         }
         /**
         * 检查是否有指定类型的弹窗处于活动状态。
@@ -826,10 +841,10 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         isPopupActive(prefab) {
-          var _this$uiManager$isPop, _this$uiManager15;
+          var _this$uiManager$isPop, _this$uiManager11;
 
           if (!prefab) return false;
-          return (_this$uiManager$isPop = (_this$uiManager15 = this.uiManager) == null ? void 0 : _this$uiManager15.isPopupActive(prefab.name)) != null ? _this$uiManager$isPop : false; // 需要 UIManager 提供此接口
+          return (_this$uiManager$isPop = (_this$uiManager11 = this.uiManager) == null ? void 0 : _this$uiManager11.isPopupActive(prefab.name)) != null ? _this$uiManager$isPop : false; // 需要 UIManager 提供此接口
         }
         /**
          * 返回主菜单/难度选择界面。
@@ -837,20 +852,18 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         goToMenu() {
-          console.log('[GameManager] 返回主菜单。'); // 只有在非菜单状态下才执行切换逻辑
+          console.log('[GameManager] 返回主菜单。');
 
           if (this._currentState !== GameState.MENU) {
-            var _this$uiManager16;
+            var _this$uiManager12;
 
             this.setGameState(GameState.MENU);
-            this.stopTimer(); // this.audioManager?.playBGM(Constants.AudioClipName.MENU_BGM); // 播放菜单 BGM
-
-            (_this$uiManager16 = this.uiManager) == null || _this$uiManager16.showDifficultySelection(); // <--- 显示难度选择界面
+            this.stopTimer();
+            (_this$uiManager12 = this.uiManager) == null || _this$uiManager12.showDifficultySelection(); // <--- 显示难度选择界面
 
             this._currentDifficulty = null;
             this._currentLevelIndex = 0;
-            this._currentLevelData = null; // 清理存档的逻辑可以根据需要添加或移除
-            // PersistenceManager.clearUnfinishedGame();
+            this._currentLevelData = null;
           }
         }
         /**
@@ -893,10 +906,10 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
           console.log('[GameManager] 启动计时器。');
           this._timerIntervalId = setInterval(() => {
-            var _this$uiManager17;
+            var _this$uiManager13;
 
             this._currentGameTime++;
-            (_this$uiManager17 = this.uiManager) == null || _this$uiManager17.updateTimer(this._currentGameTime);
+            (_this$uiManager13 = this.uiManager) == null || _this$uiManager13.updateTimer(this._currentGameTime);
           }, 1000);
         }
 

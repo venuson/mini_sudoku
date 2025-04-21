@@ -1,6 +1,6 @@
 // assets/scripts/managers/InputManager.ts
 
-import { _decorator, Component, EventTouch, Node, log, warn, error, director, SystemEventType } from 'cc';
+import { _decorator, Component, log, warn, error, director } from 'cc';
 import { Constants, DifficultyType } from '../utils/Constants';
 import { ActionRecord } from '../data/ActionRecord';
 import { GridManager } from './GridManager'; // 需要 GridManager 实例
@@ -28,7 +28,7 @@ export class InputManager extends Component {
     private _selectedCol: number = -1; // 当前选中的列 (-1 表示未选中)
     private _undoStack: ActionRecord[] = []; // 撤销栈
     private _redoStack: ActionRecord[] = []; // 恢复栈
-    private _isInputEnabled: boolean = true; // 控制是否接受输入（例如，动画播放期间可以禁用）
+    private _isInputEnabled: boolean = false; // 控制是否接受输入（例如，动画播放期间可以禁用）
     private _currentBoardData: BoardData | null = null; // 缓存当前棋盘数据，避免频繁从 GridManager 获取
 
     // --- 初始化 ---
@@ -213,6 +213,13 @@ export class InputManager extends Component {
         });
     }
 
+
+    private switchHighlight(row: number, col: number) {
+        this._selectedRow = row;
+        this._selectedCol = col;
+        this.uiManager?.highlightCell(row, col);
+    }
+
     /**
      * 处理撤销按钮点击事件。
      */
@@ -222,31 +229,22 @@ export class InputManager extends Component {
             return;
         }
 
-        const action = this._undoStack.pop()!; // 从撤销栈弹出
+        const action = this._undoStack.pop()!;
         console.log(`[InputManager] Undoing action: type=${action.type}, cell=(${action.row}, ${action.col}), prev=${action.previousValue}, new=${action.newValue}`);
 
-        // 执行反向操作
+        
         if (action.type === 'fill') {
-            // 撤销 'fill' 就是 'clear' 回 previousValue (通常是 0)
-            this.uiManager?.playInputAnimation(action.row, action.col, action.previousValue, () => {
-            
-            });
-        } else { // action.type === 'clear'
-            this.uiManager?.playClearAnimation(action.row, action.col, () => {
-                
-            });
+            this.uiManager?.playInputAnimation(action.row, action.col, action.previousValue, () => {});
+        } else { 
+            this.uiManager?.playClearAnimation(action.row, action.col, () => {});
         }
-        this.updateGridCellValue(action.row, action.col, action.previousValue); // 更新数据
-
-        this._redoStack.push(action); // 将操作压入恢复栈
-
-        // 播放音效
-        this.audioManager?.playSFX(Constants.AudioClipName.CLICK); // 使用通用点击音效？
-
-        // 更新按钮状态和数字面板
+        this.switchHighlight(action.row, action.col);
+        this._redoStack.push(action);
+        this.updateGridCellValue(action.row, action.col, action.previousValue);
+        this.audioManager?.playSFX(Constants.AudioClipName.CLICK);
         this.updateUndoRedoState();
-        this.updateNumberPadState(); // 撤销后当前选中格子的候选数字可能变化
-        this.checkCompletionAfterUpdate(action.row, action.col); // 检查完成状态
+        this.updateNumberPadState();
+        this.checkCompletionAfterUpdate(action.row, action.col); 
     }
 
     /**
@@ -258,27 +256,21 @@ export class InputManager extends Component {
             return;
         }
 
-        const action = this._redoStack.pop()!; // 从恢复栈弹出
+        const action = this._redoStack.pop()!;
         console.log(`[InputManager] Redoing action: type=${action.type}, cell=(${action.row}, ${action.col}), prev=${action.previousValue}, new=${action.newValue}`);
-
-        // 执行反向操作
+        this.switchHighlight(action.row, action.col);
         if (action.type === 'fill') {
-            this.uiManager?.playInputAnimation(action.row, action.col, action.newValue, () => {
-                
-            });
+            this.uiManager?.playInputAnimation(action.row, action.col, action.newValue, () => {});
         } else {
-            this.uiManager?.playClearAnimation(action.row, action.col, () => {
-                
-            });
+            this.uiManager?.playClearAnimation(action.row, action.col, () => { });
         }
-        this.updateGridCellValue(action.row, action.col, action.newValue); // 更新数据
-        this._undoStack.push(action); // 将操作压回撤销栈
-        this.audioManager?.playSFX(Constants.AudioClipName.CLICK);// 播放音效
-
-        // 更新按钮状态和数字面板
+        
+        this._undoStack.push(action); 
+        this.updateGridCellValue(action.row, action.col, action.newValue);
+        this.audioManager?.playSFX(Constants.AudioClipName.CLICK);
         this.updateUndoRedoState();
         this.updateNumberPadState();
-        this.checkCompletionAfterUpdate(action.row, action.col); // 检查完成状态
+        this.checkCompletionAfterUpdate(action.row, action.col); 
     }
 
     // --- 核心操作逻辑 ---
@@ -291,36 +283,19 @@ export class InputManager extends Component {
      * @param previousValue 之前的值
      */
     private performFillAction(row: number, col: number, num: number, previousValue: number): void {
-        // 1. 更新棋盘数据
         this.updateGridCellValue(row, col, num);
-
-        // 2. 创建并记录操作
         const action = new ActionRecord('fill', row, col, previousValue, num);
         this.recordAction(action);
-
-        // 3. 更新数字面板状态 (因为当前格子的候选数字变了)
         this.updateNumberPadState();
-
-        // 4. 检查完成状态 (行、列、宫、全局)
         this.checkCompletionAfterUpdate(row, col);
     }
 
-    /**
-     * 执行清除数字的操作，包括更新数据、记录操作、更新UI状态。
-     * @param row 行
-     * @param col 列
-     * @param previousValue 被清除的数字
-     */
     private performClearAction(row: number, col: number, previousValue: number): void {
         console.log(`[InputManager] performClearAction: row=${row}, col=${col}, prevValue=${previousValue}`);
-        // 1. 更新棋盘数据 (清除为 0)
         this.updateGridCellValue(row, col, 0);
 
-        // 2. 创建并记录操作
         const action = new ActionRecord('clear', row, col, previousValue, 0);
         this.recordAction(action);
-
-        // 3. 更新数字面板状态 (因为当前格子的候选数字变了)
         this.updateNumberPadState();
     }
 
@@ -337,6 +312,11 @@ export class InputManager extends Component {
         }
         // 返回克隆副本，防止外部修改影响 InputManager 的内部状态
         return cloneBoardData(this._currentBoardData);
+    }
+
+    public setInputEnabled(enabled: boolean): void {
+        log(`[InputManager] 设置输入状态: ${enabled}`);
+        this._isInputEnabled = enabled;
     }
 
     /**
@@ -412,22 +392,18 @@ export class InputManager extends Component {
         if (this.sudokuLogic!.isPartComplete(this._currentBoardData, 'row', row)) {
             console.log(`[InputManager] Row ${row} completed!`);
             this.audioManager?.playSFX(Constants.AudioClipName.APPLAUSE);
-            // 可以通知 UIManager 高亮该行
-            // this.uiManager?.highlightCompletedPart('row', row);
             partCompleted = true;
         }
         // 检查列
         if (this.sudokuLogic!.isPartComplete(this._currentBoardData, 'col', col)) {
              console.log(`[InputManager] Column ${col} completed!`);
              this.audioManager?.playSFX(Constants.AudioClipName.APPLAUSE);
-             // this.uiManager?.highlightCompletedPart('col', col);
              partCompleted = true;
         }
         // 检查宫
         if (this.sudokuLogic!.isPartComplete(this._currentBoardData, 'box', boxIndex)) {
              console.log(`[InputManager] Box ${boxIndex} completed!`);
              this.audioManager?.playSFX(Constants.AudioClipName.APPLAUSE);
-             // this.uiManager?.highlightCompletedPart('box', boxIndex);
              partCompleted = true;
         }
 
@@ -438,7 +414,6 @@ export class InputManager extends Component {
                 console.log('[InputManager] Board completed!');
                 this._isInputEnabled = false; // 游戏结束，禁用输入
                 this.deselectCurrentCell(); // 取消选择
-                // 通知 GameManager 游戏胜利
                 director.emit(Constants.EventName.GAME_OVER, true); // isWin = true
             }
         }

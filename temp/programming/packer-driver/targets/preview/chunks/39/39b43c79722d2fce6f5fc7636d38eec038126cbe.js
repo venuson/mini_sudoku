@@ -38,7 +38,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
       _cclegacy._RF.push({}, "ef939S5qqZPm7MRngyJVMPX", "SettingsPopupController", undefined); // assets/scripts/components/SettingsPopupController.ts
 
 
-      __checkObsolete__(['_decorator', 'Component', 'Toggle', 'director']); // 继承基类
+      __checkObsolete__(['_decorator', 'Toggle', 'director']); // 继承基类
 
 
       ({

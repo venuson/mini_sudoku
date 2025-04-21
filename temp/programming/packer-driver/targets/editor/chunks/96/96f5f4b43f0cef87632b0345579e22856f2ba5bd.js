@@ -39,27 +39,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
       _crd = true;
 
       _cclegacy._RF.push({}, "284b1f7WbdBRLExYXbrxaG9", "AudioManager", undefined);
-      /*
-      Singleton Pattern: Standard singleton implementation using _instance and instance getter. Includes checks for duplicate instances and ensures persistence using director.addPersistRootNode.
-      @property Decorators: Allows assigning AudioSource components directly in the Cocos Creator editor for bgmSource and sfxSource. Includes fallback logic in onLoad to add components if they aren't assigned.
-      AudioSource Components: Uses separate AudioSource components for BGM (looping) and SFX (non-looping, using playOneShot).
-      Initialization (initialize):
-      Takes initialSettings to set the initial enabled state.
-      Is async to properly handle asynchronous resource loading.
-      Includes loading state (_isLoading) to prevent multiple initializations.
-      Calls loadAudioAssets.
-      Automatically plays BGM after successful initialization if enabled.
-      Resource Loading (loadAudioAssets):
-      Uses resources.load to load AudioClips from the assets/resources/audio/ directory.
-      Uses Promise.all to wait for all clips to load (or fail).
-      Stores loaded clips in the _audioClips Map.
-      Includes error handling for individual clip loading failures.
-      Settings Control (setBgmEnabled, setSfxEnabled): Updates internal flags and immediately plays/stops BGM as needed.
-      Playback Methods: Provides clear methods (playBGM, stopBGM, pauseBGM, resumeBGM, playSFX) that check initialization status and enabled flags before interacting with the AudioSource components.
-      playOneShot for SFX: Uses playOneShot which is ideal for sound effects, allowing them to overlap without interrupting each other or the main sfxSource state.
-      Logging: Includes console.log, warn, and error calls for better debugging.
-      */
-
 
       __checkObsolete__(['_decorator', 'Component', 'Node', 'AudioClip', 'AudioSource', 'resources', 'director', 'error', 'warn', 'log', 'CCBoolean']);
 

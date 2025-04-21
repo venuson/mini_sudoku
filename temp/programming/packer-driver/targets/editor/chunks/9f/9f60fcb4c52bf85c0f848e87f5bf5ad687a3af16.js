@@ -41,7 +41,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
       _cclegacy._RF.push({}, "3c60aNfxwZNAZZPV1G98PJ3", "EffectsManager", undefined); // assets/scripts/managers/EffectsManager.ts
 
 
-      __checkObsolete__(['_decorator', 'Component', 'Node', 'Prefab', 'instantiate', 'ParticleSystem2D', 'error', 'warn', 'log', 'Vec3', 'tween', 'UIOpacity', 'isValid', 'UITransform']);
+      __checkObsolete__(['_decorator', 'Component', 'Node', 'Prefab', 'instantiate', 'ParticleSystem2D', 'error', 'warn', 'Vec3', 'tween', 'UIOpacity', 'isValid', 'UITransform']);
 
       ({
         ccclass,
@@ -82,13 +82,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
             return;
           }
 
-          EffectsManager._instance = this; // 如果挂载在 AudioManagerNode 或其他需要持久化的节点上，则不需要再次设置持久化
-          // 如果是独立节点，则需要设置：
-          // if (this.node.parent) {
-          //     director.addPersistRootNode(this.node);
-          //     console.log('[EffectsManager] 节点已设为持久化。');
-          // }
-
+          EffectsManager._instance = this;
           this._isInitialized = true;
           console.log('[EffectsManager] 初始化完成。');
         }
@@ -161,7 +155,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
               }
 
               if (ps && typeof ps.play === 'function') {
-                console.log('[EffectsManager] 粒子系统属性:', Object.keys(ps));
                 ps.play(); // 重新开始播放
               } else {
                 console.log('[EffectsManager] 粒子系统没有 play 方法。');
@@ -216,7 +209,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
 
           if (particleSystem) {
             console.log('[EffectsManager] 开始播放胜利粒子效果。');
-            console.log('[EffectsManager] 粒子系统属性:', Object.keys(particleSystem));
 
             if (typeof particleSystem.play === 'function') {
               particleSystem.play();
@@ -354,19 +346,19 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
             easing: 'sineIn'
           } // 加速消失
           ).call(() => {
-            // 动画完成后的回调
-            // targetNode.active = false; // 动画结束后隐藏节点
+            // 动画完成后的回调, 恢复正常显示
+            targetNode.setScale(1, 1, 1); // 确保节点恢复到原始大小
+            // let op = targetNode.getComponent(UIOpacity) || targetNode.addComponent(UIOpacity);
+            // op.opacity = 255; // 确保完全不透明
+
             if (callback) {
               callback();
             }
           }).start(); // 启动动画
           // 同时处理透明度
-
-          tween(uiOpacity).to((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
-            error: Error()
-          }), Constants) : Constants).Animation.NUMBER_DISAPPEAR_DURATION, {
-            opacity: 0
-          }).start();
+          // tween(uiOpacity)
+          //     .to(Constants.Animation.NUMBER_DISAPPEAR_DURATION, { opacity: 0 })
+          //     .start();
         }
 
       }, _class3._instance = null, _class3), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "winParticlesPrefab", [_dec2], {

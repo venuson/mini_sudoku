@@ -55,13 +55,6 @@ export class NumberButton extends Component {
         }
     }
 
-    /**
-     * 设置按钮的有效状态和数字标签颜色。
-     * 背景由 Button 组件根据 interactable 状态自动处理。
-     * 由 UIManager 调用。
-     * @param isValid 数字是否有效 (即是否可以合法填入选中格子)。
-     * @param isCellSelected 当前是否有格子被选中。
-     */
     public setState(isValid: boolean): void { 
         if (this._buttonComponent) {
             this._buttonComponent.interactable = isValid;

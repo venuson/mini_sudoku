@@ -1,7 +1,7 @@
 System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Component, warn, error, director, Constants, ActionRecord, SudokuLogic, cloneBoardData, _dec, _class, _crd, ccclass, property, InputManager;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Component, log, warn, error, director, Constants, ActionRecord, SudokuLogic, cloneBoardData, _dec, _class, _crd, ccclass, property, InputManager;
 
   function _reportPossibleCrUseOfConstants(extras) {
     _reporterNs.report("Constants", "../utils/Constants", _context.meta, extras);
@@ -48,6 +48,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       __checkObsoleteInNamespace__ = _cc.__checkObsoleteInNamespace__;
       _decorator = _cc._decorator;
       Component = _cc.Component;
+      log = _cc.log;
       warn = _cc.warn;
       error = _cc.error;
       director = _cc.director;
@@ -66,7 +67,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       _cclegacy._RF.push({}, "ba489B4zSRCKKBvaBW6pI7f", "InputManager", undefined); // assets/scripts/managers/InputManager.ts
 
 
-      __checkObsolete__(['_decorator', 'Component', 'EventTouch', 'Node', 'log', 'warn', 'error', 'director', 'SystemEventType']); // 需要 GridManager 实例
+      __checkObsolete__(['_decorator', 'Component', 'log', 'warn', 'error', 'director']); // 需要 GridManager 实例
       // 需要 SudokuLogic 实例
       // 需要 UIManager 实例
       // 需要 AudioManager 实例
@@ -97,7 +98,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           // 撤销栈
           this._redoStack = [];
           // 恢复栈
-          this._isInputEnabled = true;
+          this._isInputEnabled = false;
           // 控制是否接受输入（例如，动画播放期间可以禁用）
           this._currentBoardData = null;
         }
@@ -299,6 +300,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             this._isInputEnabled = true;
           });
         }
+
+        switchHighlight(row, col) {
+          var _this$uiManager4;
+
+          this._selectedRow = row;
+          this._selectedCol = col;
+          (_this$uiManager4 = this.uiManager) == null || _this$uiManager4.highlightCell(row, col);
+        }
         /**
          * 处理撤销按钮点击事件。
          */
@@ -312,38 +321,31 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             return;
           }
 
-          const action = this._undoStack.pop(); // 从撤销栈弹出
+          const action = this._undoStack.pop();
 
-
-          console.log(`[InputManager] Undoing action: type=${action.type}, cell=(${action.row}, ${action.col}), prev=${action.previousValue}, new=${action.newValue}`); // 执行反向操作
+          console.log(`[InputManager] Undoing action: type=${action.type}, cell=(${action.row}, ${action.col}), prev=${action.previousValue}, new=${action.newValue}`);
 
           if (action.type === 'fill') {
-            var _this$uiManager4;
-
-            // 撤销 'fill' 就是 'clear' 回 previousValue (通常是 0)
-            (_this$uiManager4 = this.uiManager) == null || _this$uiManager4.playInputAnimation(action.row, action.col, action.previousValue, () => {});
-          } else {
             var _this$uiManager5;
 
-            // action.type === 'clear'
-            (_this$uiManager5 = this.uiManager) == null || _this$uiManager5.playClearAnimation(action.row, action.col, () => {});
+            (_this$uiManager5 = this.uiManager) == null || _this$uiManager5.playInputAnimation(action.row, action.col, action.previousValue, () => {});
+          } else {
+            var _this$uiManager6;
+
+            (_this$uiManager6 = this.uiManager) == null || _this$uiManager6.playClearAnimation(action.row, action.col, () => {});
           }
 
-          this.updateGridCellValue(action.row, action.col, action.previousValue); // 更新数据
+          this.switchHighlight(action.row, action.col);
 
-          this._redoStack.push(action); // 将操作压入恢复栈
-          // 播放音效
+          this._redoStack.push(action);
 
-
+          this.updateGridCellValue(action.row, action.col, action.previousValue);
           (_this$audioManager4 = this.audioManager) == null || _this$audioManager4.playSFX((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
-          }), Constants) : Constants).AudioClipName.CLICK); // 使用通用点击音效？
-          // 更新按钮状态和数字面板
-
+          }), Constants) : Constants).AudioClipName.CLICK);
           this.updateUndoRedoState();
-          this.updateNumberPadState(); // 撤销后当前选中格子的候选数字可能变化
-
-          this.checkCompletionAfterUpdate(action.row, action.col); // 检查完成状态
+          this.updateNumberPadState();
+          this.checkCompletionAfterUpdate(action.row, action.col);
         }
         /**
          * 处理恢复按钮点击事件。
@@ -358,34 +360,30 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             return;
           }
 
-          const action = this._redoStack.pop(); // 从恢复栈弹出
+          const action = this._redoStack.pop();
 
-
-          console.log(`[InputManager] Redoing action: type=${action.type}, cell=(${action.row}, ${action.col}), prev=${action.previousValue}, new=${action.newValue}`); // 执行反向操作
+          console.log(`[InputManager] Redoing action: type=${action.type}, cell=(${action.row}, ${action.col}), prev=${action.previousValue}, new=${action.newValue}`);
+          this.switchHighlight(action.row, action.col);
 
           if (action.type === 'fill') {
-            var _this$uiManager6;
-
-            (_this$uiManager6 = this.uiManager) == null || _this$uiManager6.playInputAnimation(action.row, action.col, action.newValue, () => {});
-          } else {
             var _this$uiManager7;
 
-            (_this$uiManager7 = this.uiManager) == null || _this$uiManager7.playClearAnimation(action.row, action.col, () => {});
+            (_this$uiManager7 = this.uiManager) == null || _this$uiManager7.playInputAnimation(action.row, action.col, action.newValue, () => {});
+          } else {
+            var _this$uiManager8;
+
+            (_this$uiManager8 = this.uiManager) == null || _this$uiManager8.playClearAnimation(action.row, action.col, () => {});
           }
 
-          this.updateGridCellValue(action.row, action.col, action.newValue); // 更新数据
+          this._undoStack.push(action);
 
-          this._undoStack.push(action); // 将操作压回撤销栈
-
-
+          this.updateGridCellValue(action.row, action.col, action.newValue);
           (_this$audioManager5 = this.audioManager) == null || _this$audioManager5.playSFX((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
             error: Error()
-          }), Constants) : Constants).AudioClipName.CLICK); // 播放音效
-          // 更新按钮状态和数字面板
-
+          }), Constants) : Constants).AudioClipName.CLICK);
           this.updateUndoRedoState();
           this.updateNumberPadState();
-          this.checkCompletionAfterUpdate(action.row, action.col); // 检查完成状态
+          this.checkCompletionAfterUpdate(action.row, action.col);
         } // --- 核心操作逻辑 ---
 
         /**
@@ -398,36 +396,22 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         performFillAction(row, col, num, previousValue) {
-          // 1. 更新棋盘数据
-          this.updateGridCellValue(row, col, num); // 2. 创建并记录操作
-
+          this.updateGridCellValue(row, col, num);
           const action = new (_crd && ActionRecord === void 0 ? (_reportPossibleCrUseOfActionRecord({
             error: Error()
           }), ActionRecord) : ActionRecord)('fill', row, col, previousValue, num);
-          this.recordAction(action); // 3. 更新数字面板状态 (因为当前格子的候选数字变了)
-
-          this.updateNumberPadState(); // 4. 检查完成状态 (行、列、宫、全局)
-
+          this.recordAction(action);
+          this.updateNumberPadState();
           this.checkCompletionAfterUpdate(row, col);
         }
-        /**
-         * 执行清除数字的操作，包括更新数据、记录操作、更新UI状态。
-         * @param row 行
-         * @param col 列
-         * @param previousValue 被清除的数字
-         */
-
 
         performClearAction(row, col, previousValue) {
-          console.log(`[InputManager] performClearAction: row=${row}, col=${col}, prevValue=${previousValue}`); // 1. 更新棋盘数据 (清除为 0)
-
-          this.updateGridCellValue(row, col, 0); // 2. 创建并记录操作
-
+          console.log(`[InputManager] performClearAction: row=${row}, col=${col}, prevValue=${previousValue}`);
+          this.updateGridCellValue(row, col, 0);
           const action = new (_crd && ActionRecord === void 0 ? (_reportPossibleCrUseOfActionRecord({
             error: Error()
           }), ActionRecord) : ActionRecord)('clear', row, col, previousValue, 0);
-          this.recordAction(action); // 3. 更新数字面板状态 (因为当前格子的候选数字变了)
-
+          this.recordAction(action);
           this.updateNumberPadState();
         }
         /**
@@ -447,6 +431,11 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           return (_crd && cloneBoardData === void 0 ? (_reportPossibleCrUseOfcloneBoardData({
             error: Error()
           }), cloneBoardData) : cloneBoardData)(this._currentBoardData);
+        }
+
+        setInputEnabled(enabled) {
+          log(`[InputManager] 设置输入状态: ${enabled}`);
+          this._isInputEnabled = enabled;
         }
         /**
          * 更新内部棋盘数据模型和通知 GridManager 更新视觉。
@@ -485,12 +474,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         updateUndoRedoState() {
-          var _this$uiManager8;
+          var _this$uiManager9;
 
           const canUndo = this._undoStack.length > 0;
           const canRedo = this._redoStack.length > 0; // 通知 UIManager 更新按钮状态
 
-          (_this$uiManager8 = this.uiManager) == null || _this$uiManager8.updateUndoRedoButtons(canUndo, canRedo); // 或者使用事件
+          (_this$uiManager9 = this.uiManager) == null || _this$uiManager9.updateUndoRedoButtons(canUndo, canRedo); // 或者使用事件
           // director.emit(Constants.EventName.UNDO_STATE_UPDATE, canUndo, canRedo);
         }
         /**
@@ -499,14 +488,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
 
         updateNumberPadState() {
-          var _this$uiManager10;
+          var _this$uiManager11;
 
           console.log(`[InputManager] Updating number pad state., row ${this._selectedRow}, col ${this._selectedCol}`);
 
           if (this._selectedRow === -1 || this._selectedCol === -1 || !this._currentBoardData) {
-            var _this$uiManager9;
+            var _this$uiManager10;
 
-            (_this$uiManager9 = this.uiManager) == null || _this$uiManager9.updateNumberPadState([]); // 传入空数组表示默认状态或全部可用
+            (_this$uiManager10 = this.uiManager) == null || _this$uiManager10.updateNumberPadState([]); // 传入空数组表示默认状态或全部可用
 
             return;
           } // 获取当前选中格子的合法候选数字
@@ -514,7 +503,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
           const validNumbers = this.sudokuLogic.getValidCandidates(this._currentBoardData, this._selectedRow, this._selectedCol); // 通知 UIManager 更新数字按钮背景
 
-          (_this$uiManager10 = this.uiManager) == null || _this$uiManager10.updateNumberPadState(validNumbers);
+          (_this$uiManager11 = this.uiManager) == null || _this$uiManager11.updateNumberPadState(validNumbers);
         }
         /**
          * 在用户更新格子后检查相关行、列、宫以及整个棋盘的完成状态。
@@ -541,9 +530,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             console.log(`[InputManager] Row ${row} completed!`);
             (_this$audioManager6 = this.audioManager) == null || _this$audioManager6.playSFX((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
               error: Error()
-            }), Constants) : Constants).AudioClipName.APPLAUSE); // 可以通知 UIManager 高亮该行
-            // this.uiManager?.highlightCompletedPart('row', row);
-
+            }), Constants) : Constants).AudioClipName.APPLAUSE);
             partCompleted = true;
           } // 检查列
 
@@ -554,8 +541,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             console.log(`[InputManager] Column ${col} completed!`);
             (_this$audioManager7 = this.audioManager) == null || _this$audioManager7.playSFX((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
               error: Error()
-            }), Constants) : Constants).AudioClipName.APPLAUSE); // this.uiManager?.highlightCompletedPart('col', col);
-
+            }), Constants) : Constants).AudioClipName.APPLAUSE);
             partCompleted = true;
           } // 检查宫
 
@@ -566,8 +552,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             console.log(`[InputManager] Box ${boxIndex} completed!`);
             (_this$audioManager8 = this.audioManager) == null || _this$audioManager8.playSFX((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
               error: Error()
-            }), Constants) : Constants).AudioClipName.APPLAUSE); // this.uiManager?.highlightCompletedPart('box', boxIndex);
-
+            }), Constants) : Constants).AudioClipName.APPLAUSE);
             partCompleted = true;
           } // 如果有部分完成，检查全局是否完成
 
@@ -580,7 +565,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
               this._isInputEnabled = false; // 游戏结束，禁用输入
 
               this.deselectCurrentCell(); // 取消选择
-              // 通知 GameManager 游戏胜利
 
               director.emit((_crd && Constants === void 0 ? (_reportPossibleCrUseOfConstants({
                 error: Error()
@@ -595,12 +579,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
         deselectCurrentCell() {
           if (this._selectedRow !== -1 || this._selectedCol !== -1) {
-            var _this$uiManager11;
+            var _this$uiManager12;
 
             console.log('[InputManager] Deselecting cell.');
             this._selectedRow = -1;
             this._selectedCol = -1;
-            (_this$uiManager11 = this.uiManager) == null || _this$uiManager11.deselectCell(); // 通知 UI 取消高亮
+            (_this$uiManager12 = this.uiManager) == null || _this$uiManager12.deselectCell(); // 通知 UI 取消高亮
 
             this.updateNumberPadState(); // 更新数字面板状态
           }
